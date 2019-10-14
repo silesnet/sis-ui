@@ -5,10 +5,12 @@ import { action } from '@ember/object';
 export default class extends Controller {
   @service session;
   @service currentUser;
+  @service cookies;
 
   @action
   logIn() {
-    this.session.authenticate('authenticator:sis');
+    const sessionId = this.cookies.read().JSESSIONID;
+    this.session.authenticate('authenticator:sis', sessionId);
   }
 
   @action

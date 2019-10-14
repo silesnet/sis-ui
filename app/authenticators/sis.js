@@ -1,13 +1,24 @@
 import BaseAuthenticator from 'ember-simple-auth/authenticators/base';
-import { resolve } from 'rsvp';
+import { resolve, reject } from 'rsvp';
+import fetch from 'fetch';
 
 export default class extends BaseAuthenticator {
-  authenticate() {
-    return resolve(undefined);
+  async authenticate(sessionId = null) {
+    const response = await fetch('/api/auth/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ sessionId: sessionId }),
+    });
+    if (!response.ok) {
+      return reject('Authentication failed.');
+    }
+    return response.json();
   }
 
   restore() {
-    return resolve(undefined);
+    return reject(undefined);
   }
 
   invalidate() {

@@ -1,9 +1,13 @@
-{{outlet}}
-Is authenticated: {{ session.isAuthenticated }}<br />
-{{#if session.isAuthenticated}}
-    <button type="submit" {{action 'logOut'}}>Log Out</button>
+<div class="px-3 py-1 text-right">
+  {{#if session.isAuthenticated}}
     {{#if currentUser.user }}
-      <p>Signed in as {{ currentUser.user.login }}, {{ currentUser.user.fullName }}</p>
+      Signed in as {{ currentUser.user.login }}, {{ currentUser.user.fullName }}
     {{/if}}
-{{/if}}
-<button type="submit" {{action 'logIn'}}>Log In</button>
+    <button type="submit" {{action 'logOut'}}>Log Out</button>
+  {{else}}
+    <button type="submit" {{action 'logIn'}}>Log In</button>
+  {{/if}}
+</div>
+<div class="px-3">
+  {{outlet}}
+</div>

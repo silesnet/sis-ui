@@ -9,17 +9,23 @@ export default class extends Service {
   @tracked user = undefined;
 
   load() {
-    if (this.session.isAuthenticated) {
-      return fetch('/users/current?session=test').then((response) => {
-        return response.json().then((body) => {
-          this.user = {
-            login: body.users.user,
-            fullName: body.users.full_name,
-          };
+    const accessToken = this.session.data.authenticated.accessToken;
+    if (accessToken) {
+      return fetch('/api/users/session', {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Unable to load user profile.');
+          }
+          return response.json();
+        })
+        .then((body) => {
+          this.user = { ...body };
         });
-      });
-    } else {
-      return resolve(undefined);
     }
+    return resolve(undefined);
   }
 }
