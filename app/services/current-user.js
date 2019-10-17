@@ -3,6 +3,7 @@ import { resolve } from 'rsvp';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import fetch from 'fetch';
+import ENV from 'sis-ui/config/environment';
 
 export default class extends Service {
   @service session;
@@ -11,7 +12,7 @@ export default class extends Service {
   load() {
     const accessToken = this.session.data.authenticated.accessToken;
     if (accessToken) {
-      return fetch('/api/users/session', {
+      return fetch(`${ENV.apiRootURL}/api/users/session`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

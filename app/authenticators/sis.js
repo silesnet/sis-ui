@@ -1,10 +1,11 @@
 import BaseAuthenticator from 'ember-simple-auth/authenticators/base';
 import { resolve, reject } from 'rsvp';
 import fetch from 'fetch';
+import ENV from 'sis-ui/config/environment';
 
 export default class extends BaseAuthenticator {
   async authenticate(sessionId = null) {
-    const response = await fetch('/api/auth/token', {
+    const response = await fetch(`${ENV.apiRootURL}/api/auth/token`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

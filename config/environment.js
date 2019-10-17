@@ -6,6 +6,7 @@ module.exports = function(environment) {
     podModulePrefix: 'sis-ui/features',
     environment,
     rootURL: '/',
+    apiRootURL: '',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
@@ -47,6 +48,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
     ENV.rootURL = '/net';
+    ENV.apiRootURL = 'https://sis.silesnet.net:8090';
   }
 
   return ENV;
