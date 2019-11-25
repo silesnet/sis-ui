@@ -67,15 +67,52 @@
 </template>
 
 <script>
+import Suggestion from './Suggestion'
+
 export default {
     data() {
       return {
           isMenuOpen: false,
           suggestions: [
-
+             {
+                 id: 1,
+                 label: 'Suggestion 1',
+                 url: '#'
+             },
+             {
+                 id: 2,
+                 label: 'Suggestion 2',
+                 url: '#'
+             },
+             {
+                 id: 3,
+                 label: 'Suggestion 3',
+                 url: '#'
+             },
+             {
+                 id: 4,
+                 label: 'Suggestion 4',
+                 url: '#'
+             },
+             {
+                 id: 5,
+                 label: 'Suggestion 5',
+                 url: '#'
+             },
+             {
+                 id: 6,
+                 label: 'Suggestion 6',
+                 url: '#'
+             },
+             {
+                 id: 7,
+                 label: 'Suggestion 7',
+                 url: '#'
+             },
           ]
       }
-    }
+    },
+    components: [ Suggestion ]
 };
 </script>
 
