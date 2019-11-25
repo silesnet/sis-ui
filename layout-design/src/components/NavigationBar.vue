@@ -1,0 +1,83 @@
+<template>
+  <header class="flex bg-white border-b border-gray-200 h-16 items-center">
+    <div class="w-full max-w-screen relative mx-auto px-6">
+      <div class="flex items-center -mx-6">
+        <div class="pl-6 pr-6">
+          <div class="flex items-center">
+            <a href="#" class="block">SIS</a>
+          </div>
+        </div>
+        <nav class="relative flex flex-grow">
+          <div class="px-4">
+            <div class="relative">
+              <span>
+                <input
+                  class="block w-full rounded-lg py-2 pr-4 pl-10 bg-gray-200 border border-transparent focus:outline-none focus:border-gray-300 focus:bg-white placeholder-gray-600 appearance-none leading-normal"
+                  placeholder="Network..."
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+              </span>
+              <div class="absolute pointer-events-none inset-y-0 left-0 pl-4 flex items-center">
+                <svg
+                  class="fill-current pointer-events-none text-gray-600 w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="absolute w-64 px-4 mt-12 bg-red-100">
+            <ul class="text-gray-700k">
+              <li class="hover:bg-gray-400">suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+              <li>suggestion 1</li>
+            </ul>
+          </div>
+          <div class="px-4">
+            <div class="flex justify-start items-center text-gray-500">
+              <a
+                href="#"
+                class="block flex items-center py-2 w-16 mr-4 hover:text-gray-700"
+              >user | cz</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+    data() {
+      return {
+          isMenuOpen: false,
+          suggestions: [
+
+          ]
+      }
+    }
+};
+</script>
+
+<style>
+</style>
