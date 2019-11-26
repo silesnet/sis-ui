@@ -18,7 +18,8 @@
                   spellcheck="false"
                 />
               </span>
-              <div class="absolute pointer-events-none inset-y-0 left-0 pl-4 flex items-center">
+              <div
+                class="absolute pointer-events-none inset-y-0 left-0 pl-4 flex items-center">
                 <svg
                   class="fill-current pointer-events-none text-gray-600 w-4 h-4"
                   xmlns="http://www.w3.org/2000/svg"
@@ -29,28 +30,17 @@
                   />
                 </svg>
               </div>
+              <div class="absolute w-64 mt-1 bg-red-100">
+                <ul class="mt-1 text-gray-700k">
+                  <li v-for="suggestion in suggestions"
+                      v-bind:key="suggestion.id"
+                      class="px-4 first:bg-gray-300 mt-1 hover:bg-gray-400"
+                  >
+                    {{ suggestion.label }}
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="absolute w-64 px-4 mt-12 bg-red-100">
-            <ul class="text-gray-700k">
-              <li class="hover:bg-gray-400">suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-              <li>suggestion 1</li>
-            </ul>
           </div>
           <div class="px-4">
             <div class="flex justify-start items-center text-gray-500">
@@ -60,6 +50,20 @@
               >user | cz</a>
             </div>
           </div>
+          <div>
+            <button @click="isMenuOpen = !isMenuOpen" type="button" class="block text-gray-500 focus:outline-none">
+              <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                <path v-if="isMenuOpen" fill-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
+                <path v-if="!isMenuOpen" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+              </svg>
+            </button>
+            <div :class="isMenuOpen ? 'block' : 'hidden'" class="px-2 pt-2 pb-4">
+              <a href="#" class="block px-2 py-1 text-gray-600 rounded">Services</a>
+              <a href="#" class="block px-2 py-1 text-gray-600 rounded">Services</a>
+              <a href="#" class="block px-2 py-1 text-gray-600 rounded">Services</a>
+              <a href="#" class="block px-2 py-1 text-gray-600 rounded">Services</a>
+            </div>
+          </div>
         </nav>
       </div>
     </div>
@@ -67,53 +71,53 @@
 </template>
 
 <script>
-import Suggestion from './Suggestion'
+  import Suggestion from './Suggestion';
 
-export default {
+  export default {
     data() {
       return {
-          isMenuOpen: false,
-          suggestions: [
-             {
-                 id: 1,
-                 label: 'Suggestion 1',
-                 url: '#'
-             },
-             {
-                 id: 2,
-                 label: 'Suggestion 2',
-                 url: '#'
-             },
-             {
-                 id: 3,
-                 label: 'Suggestion 3',
-                 url: '#'
-             },
-             {
-                 id: 4,
-                 label: 'Suggestion 4',
-                 url: '#'
-             },
-             {
-                 id: 5,
-                 label: 'Suggestion 5',
-                 url: '#'
-             },
-             {
-                 id: 6,
-                 label: 'Suggestion 6',
-                 url: '#'
-             },
-             {
-                 id: 7,
-                 label: 'Suggestion 7',
-                 url: '#'
-             },
-          ]
-      }
+        isMenuOpen: false,
+        suggestions: [
+          {
+            id: 1,
+            label: 'Suggestion 1',
+            url: '#',
+          },
+          {
+            id: 2,
+            label: 'Suggestion 2',
+            url: '#',
+          },
+          {
+            id: 3,
+            label: 'Suggestion 3',
+            url: '#',
+          },
+          {
+            id: 4,
+            label: 'Suggestion 4',
+            url: '#',
+          },
+          {
+            id: 5,
+            label: 'Suggestion 5',
+            url: '#',
+          },
+          {
+            id: 6,
+            label: 'Suggestion 6',
+            url: '#',
+          },
+          {
+            id: 7,
+            label: 'Suggestion 7',
+            url: '#',
+          },
+        ],
+      };
     },
-    components: [ Suggestion ]
-};
+    components: [Suggestion],
+  };
 </script>
 
 <style>

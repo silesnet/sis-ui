@@ -1,7 +1,7 @@
 <template>
-  <body id="app">
+  <body id="app" class="antialiased text-gray-900">
     <NavigationBar />
-  
+
   </body>
 </template>
 
@@ -15,4 +15,4 @@ export default {
 
 </script>
 
-<style src="./assets/tailwind.css">
+<style src="./assets/tailwind.css"></style>
