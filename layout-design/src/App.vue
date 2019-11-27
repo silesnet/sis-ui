@@ -1,7 +1,8 @@
 <template>
   <body id="app" class="antialiased text-gray-900">
-    <NavigationBar />
-
+    <header>
+      <NavigationBar />
+    </header>
   </body>
 </template>
 
