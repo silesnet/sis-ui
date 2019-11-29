@@ -4,9 +4,12 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 import { inject as service } from '@ember/service';
 
 export default class extends Route.extend(ApplicationRouteMixin) {
+  @service session;
   @service currentUser;
+  @service cookies;
 
   beforeModel() {
+    this._logIn();
     return this._loadCurrentUser();
   }
 
@@ -24,5 +27,10 @@ export default class extends Route.extend(ApplicationRouteMixin) {
     return this.currentUser.load().catch(() => {
       this.session.invalidate();
     });
+  }
+
+  _logIn() {
+    const sessionId = this.cookies.read().JSESSIONID || 'test';
+    this.session.authenticate('authenticator:sis', sessionId);
   }
 }
