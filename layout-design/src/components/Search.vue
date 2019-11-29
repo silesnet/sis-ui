@@ -8,6 +8,8 @@
         spellcheck="false"
         type="text"
         v-on:input="input"
+        v-model="query"
+        @keydown.esc="reset"
       />
     </span>
     <div
@@ -22,8 +24,8 @@
         />
       </svg>
     </div>
-    <div class="absolute inset-y-0 right-0 flex items-center pl-4 pr-4">
-        <svg :class="isSearching ? 'block' : 'hidden'" class="w-5 h-5 text-gray-600 fill-current" viewBox="0 0 24 24">
+    <div @click="reset" class="absolute inset-y-0 right-0 flex items-center pl-4 pr-4">
+      <svg :class="hasContent ? 'block' : 'hidden'" class="w-5 h-5 text-gray-600 fill-current" viewBox="0 0 24 24">
         <path
           fill-rule="evenodd"
           d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
@@ -49,13 +51,17 @@ export default {
   props: ['suggestions'],
   data() {
     return {
-      isSearching: false
+     hasContent: false,
+     query: null,
     }
   },
   methods: {
     input(event) {
-      console.log('changing', event);
-      this.isSearching = true;
+      this.hasContent = !!this.query;
+    },
+    reset() {
+      this.query = null;
+      this.hasContent = false;
     }
   }
 };
