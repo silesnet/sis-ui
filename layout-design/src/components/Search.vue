@@ -3,19 +3,19 @@
     <span>
       <input
         id="search"
+        ref="searchInput"
         class="block w-full py-2 pl-10 pr-4 text-sm leading-normal placeholder-gray-600 bg-gray-200 border border-transparent rounded-lg appearance-none focus:outline-none focus:border-gray-300 focus:bg-white focus:shadow-lg"
         placeholder="Vyhledat síťový prvek..."
         autocomplete="off"
         spellcheck="false"
         type="text"
-        v-on:input="input"
         v-model="query"
-        @keydown.esc="reset"
-        ref="searchInput"
-        @mouseover="isMouseOver = true"
-        @mouseout="isMouseOver = false"
+        @input="input"
         @focusin="hasFocus = true"
         @focusout="hasFocus = false"
+        @mouseover="isMouseOver = true"
+        @mouseout="isMouseOver = false"
+        @keydown.esc="reset"
       />
     </span>
     <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
@@ -26,10 +26,10 @@
       </svg>
     </div>
     <div
+      class="absolute inset-y-0 right-0 flex items-center pl-4 pr-4"
       @click="reset"
       @mouseover="isMouseOver = true"
       @mouseout="isMouseOver = false"
-      class="absolute inset-y-0 right-0 flex items-center pl-4 pr-4"
     >
       <svg
         :class="(hasFocus && hasContent) || (isMouseOver && hasContent) ? 'block' : 'hidden'"
@@ -80,11 +80,4 @@ export default {
 };
 </script>
 
-<style scoped>
-#search::-webkit-search-cancel-button {
-  /* -webkit-appearance: none;
-    height: 10px;
-    width: 10px;
-    background: yellow; */
-}
-</style>
+<style scoped></style>
