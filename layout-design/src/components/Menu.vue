@@ -17,18 +17,25 @@
           d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
         />
       </svg>
-      <!-- <button v-if="isOpen" @click="isOpen = false" tabindex="-1" class="fixed w-full h-full bg-black opacity-50 cursor-default insert-0"></button> -->
-      <div v-if="isOpen" class="absolute right-0 text-right bg-gray-200">
-        <a 
-          v-for="item in items"
-          :key="item.label"
-          :href="item.url"
-          class="px-4 mt-1 hover:bg-gray-400"
-        >
-          {{ item.label }}
-        </a>
-      </div>
     </button>
+    <button
+      v-if="isOpen"
+      @click="isOpen = false"
+      tabindex="-1"
+      class="fixed inset-0 w-full h-full cursor-default"
+    ></button>
+    <div
+      v-if="isOpen"
+      class="absolute right-0 pt-1 pb-2 mt-1 mr-1 text-right w-32 bg-white shadow text-gray-700"
+    >
+      <a
+        class="inline-block w-full px-4 mt-1 hover:bg-gray-200"
+        v-for="item in items"
+        :key="item.label"
+        :href="item.url"
+        @click="isOpen = false"
+      >{{ item.label }}</a>
+    </div>
   </div>
 </template>
 
@@ -39,6 +46,19 @@ export default {
     return {
       isOpen: false,
     };
+  },
+  created() {
+    const handleEscape = (e) => {
+      if (e.key === 'Esc' || e.key === 'Escape') {
+        this.isOpen = false;
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+
+    this.$once('hook:beforeDestroy', () => {
+      document.removeEventListener('keydown', handleEscape);
+    });
   },
 };
 </script>
