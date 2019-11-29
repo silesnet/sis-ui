@@ -5,7 +5,7 @@
       type="button"
       class="relative block text-gray-500 focus:outline-none"
     >
-      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+      <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
         <path
           v-if="isOpen"
           fill-rule="evenodd"
@@ -17,8 +17,8 @@
           d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
         />
       </svg>
-      <!-- <button v-if="isOpen" @click="isOpen = false" tabindex="-1" class="fixed insert-0 h-full w-full bg-black opacity-50 cursor-default"></button> -->
-      <div v-if="isOpen" class="absolute right-0 bg-gray-200">
+      <!-- <button v-if="isOpen" @click="isOpen = false" tabindex="-1" class="fixed w-full h-full bg-black opacity-50 cursor-default insert-0"></button> -->
+      <div v-if="isOpen" class="absolute right-0 text-right bg-gray-200">
         <a 
           v-for="item in items"
           :key="item.label"

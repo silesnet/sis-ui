@@ -1,11 +1,13 @@
 <template>
   <div class="relative">
     <span>
-      <input
-        class="block w-full py-2 pl-10 pr-4 leading-normal placeholder-gray-600 bg-gray-200 border border-transparent rounded-lg appearance-none focus:outline-none focus:border-gray-300 focus:bg-white"
-        placeholder="Network..."
+      <input id="search"
+        class="block w-full py-2 pl-10 pr-4 text-sm leading-normal placeholder-gray-600 bg-gray-200 border border-transparent rounded-lg shadow-lg appearance-none focus:outline-none focus:border-gray-300 focus:bg-white"
+        placeholder="Vyhledat síťový prvek..."
         autocomplete="off"
         spellcheck="false"
+        type="text"
+        v-on:input="input"
       />
     </span>
     <div
@@ -13,7 +15,6 @@
     >
       <svg
         class="w-4 h-4 text-gray-600 pointer-events-none fill-current"
-        xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
       >
         <path
@@ -21,7 +22,15 @@
         />
       </svg>
     </div>
-    <div class="absolute w-64 mt-1 bg-red-100">
+    <div class="absolute inset-y-0 right-0 flex items-center pl-4 pr-4">
+        <svg :class="isSearching ? 'block' : 'hidden'" class="w-5 h-5 text-gray-600 fill-current" viewBox="0 0 24 24">
+        <path
+          fill-rule="evenodd"
+          d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
+        />
+      </svg>
+    </div>
+    <!-- <div class="absolute w-64 mt-1 bg-red-100">
       <ul class="mt-1 text-gray-700k">
         <li
           v-for="suggestion in suggestions"
@@ -31,14 +40,32 @@
           {{ suggestion.label }}
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 export default {
   props: ['suggestions'],
+  data() {
+    return {
+      isSearching: false
+    }
+  },
+  methods: {
+    input(event) {
+      console.log('changing', event);
+      this.isSearching = true;
+    }
+  }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+  #search::-webkit-search-cancel-button {
+    /* -webkit-appearance: none;
+    height: 10px;
+    width: 10px;
+    background: yellow; */
+  }
+</style>

@@ -1,9 +1,9 @@
 <template>
-  <body id="app" class="antialiased text-gray-900">
+  <div id="app" class="antialiased text-gray-900 bg-gray-100 bg-auto">
     <header>
       <NavigationBar />
     </header>
-  </body>
+  </div>
 </template>
 
 <script>
@@ -17,3 +17,8 @@ export default {
 </script>
 
 <style src="./assets/tailwind.css"></style>
+<style>
+body {
+  @apply bg-white; 
+}
+</style>
