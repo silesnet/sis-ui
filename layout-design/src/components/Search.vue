@@ -1,8 +1,9 @@
 <template>
   <div class="relative">
     <span>
-      <input id="search"
-        class="block w-full py-2 pl-10 pr-4 text-sm leading-normal placeholder-gray-600 bg-gray-200 border border-transparent rounded-lg shadow-lg appearance-none focus:outline-none focus:border-gray-300 focus:bg-white"
+      <input
+        id="search"
+        class="block w-full py-2 pl-10 pr-4 text-sm leading-normal placeholder-gray-600 bg-gray-200 border border-transparent rounded-lg appearance-none focus:outline-none focus:border-gray-300 focus:bg-white focus:shadow-lg"
         placeholder="Vyhledat síťový prvek..."
         autocomplete="off"
         spellcheck="false"
@@ -10,22 +11,31 @@
         v-on:input="input"
         v-model="query"
         @keydown.esc="reset"
+        ref="searchInput"
+        @mouseover="isMouseOver = true"
+        @mouseout="isMouseOver = false"
+        @focusin="hasFocus = true"
+        @focusout="hasFocus = false"
       />
     </span>
-    <div
-      class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none"
-    >
-      <svg
-        class="w-4 h-4 text-gray-600 pointer-events-none fill-current"
-        viewBox="0 0 20 20"
-      >
+    <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+      <svg class="w-4 h-4 text-gray-600 pointer-events-none fill-current" viewBox="0 0 20 20">
         <path
           d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
         />
       </svg>
     </div>
-    <div @click="reset" class="absolute inset-y-0 right-0 flex items-center pl-4 pr-4">
-      <svg :class="hasContent ? 'block' : 'hidden'" class="w-5 h-5 text-gray-600 fill-current" viewBox="0 0 24 24">
+    <div
+      @click="reset"
+      @mouseover="isMouseOver = true"
+      @mouseout="isMouseOver = false"
+      class="absolute inset-y-0 right-0 flex items-center pl-4 pr-4"
+    >
+      <svg
+        :class="(hasFocus && hasContent) || (isMouseOver && hasContent) ? 'block' : 'hidden'"
+        class="w-5 h-5 text-gray-600 fill-current"
+        viewBox="0 0 24 24"
+      >
         <path
           fill-rule="evenodd"
           d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
@@ -42,7 +52,7 @@
           {{ suggestion.label }}
         </li>
       </ul>
-    </div> -->
+    </div>-->
   </div>
 </template>
 
@@ -51,27 +61,30 @@ export default {
   props: ['suggestions'],
   data() {
     return {
-     hasContent: false,
-     query: null,
-    }
+      hasContent: false,
+      hasFocus: false,
+      isMouseOver: false,
+      query: null,
+    };
   },
   methods: {
     input(event) {
       this.hasContent = !!this.query;
     },
-    reset() {
+    reset(event) {
       this.query = null;
       this.hasContent = false;
-    }
-  }
+      this.$refs.searchInput.focus();
+    },
+  },
 };
 </script>
 
 <style scoped>
-  #search::-webkit-search-cancel-button {
-    /* -webkit-appearance: none;
+#search::-webkit-search-cancel-button {
+  /* -webkit-appearance: none;
     height: 10px;
     width: 10px;
     background: yellow; */
-  }
+}
 </style>
