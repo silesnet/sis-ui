@@ -26,7 +26,7 @@
     ></button>
     <div
       v-if="isOpen"
-      class="absolute right-0 pt-1 pb-2 mt-1 mr-1 text-right w-32 bg-white shadow text-gray-700"
+      class="absolute right-0 w-32 pt-1 pb-2 mt-1 mr-1 text-gray-700 bg-white shadow"
     >
       <a
         class="inline-block w-full px-4 mt-1 hover:bg-gray-200"
