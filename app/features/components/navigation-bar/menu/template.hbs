@@ -1,4 +1,6 @@
-<div class="relative" ...attributes>
+<div class="relative" ...attributes
+  {{ on 'keydown' this.keyPress }}
+  >
   <button
     type="button"
     class="relative block text-gray-500 focus:outline-none"
