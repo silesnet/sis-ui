@@ -1,37 +1,40 @@
-<div class="relative">
+<div class="relative" ...attributes>
   <button
-    {{!-- @click="isOpen = !isOpen" --}}
     type="button"
     class="relative block text-gray-500 focus:outline-none"
+    {{ on 'click' (toggle 'isOpen' this) }}
   >
     <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-      <path v-if="isOpen" fill-rule="evenodd"
-        d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />
-      <path v-if="!isOpen" fill-rule="evenodd"
-        d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+      {{#if this.isOpen}}
+        <path fill-rule="evenodd"
+          d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />
+      {{else}}
+        <path fill-rule="evenodd"
+          d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+      {{/if}}
     </svg>
   </button>
-  {{!-- <button
-    v-if="isOpen"
-    @click="isOpen = false"
-    tabindex="-1"
-    class="fixed inset-0 w-full h-full cursor-default"
-    ></button> --}}
-  <div
-    v-if="isOpen"
-    class="absolute right-0 w-32 pt-1 pb-2 mt-1 mr-1 text-sm text-gray-700 bg-white shadow"
-  >
-    <a
-      class="inline-block w-full px-4 mt-1 hover:bg-gray-200"
-      {{!-- @click="isOpen = false" --}}
+  {{#if this.isOpen}}
+    <button
+      class="fixed inset-0 w-full h-full cursor-default"
+      tabindex="-1"
+      {{ on 'click' (fn (mut this.isOpen) false) }}
+      ></button>
+    <div
+      class="absolute right-0 w-32 pt-1 pb-2 mt-1 mr-1 text-sm text-gray-700 bg-white shadow"
     >
-      Domů
-    </a>
-    <a
-      class="inline-block w-full px-4 mt-1 hover:bg-gray-200"
-      {{!-- @click="isOpen = false" --}}
-    >
-      Odhlásit se
-    </a>
-  </div>
+      <a
+        class="inline-block w-full px-4 mt-1 cursor-default hover:bg-gray-200"
+        {{ on 'click' (fn (mut this.isOpen) false) }}
+      >
+        Domů
+      </a>
+      <a
+        class="inline-block w-full px-4 mt-1 cursor-default hover:bg-gray-200"
+        {{ on 'click' (fn (mut this.isOpen) false) }}
+      >
+        Odhlásit se
+      </a>
+    </div>
+  {{/if}}
 </div>
