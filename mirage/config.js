@@ -26,6 +26,7 @@ export default function() {
     return {
       login: 'ikaleta',
       fullName: 'Ivo Kaleta',
+      division: 'CZ'
     };
   });
 }

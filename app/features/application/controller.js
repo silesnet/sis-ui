@@ -7,6 +7,10 @@ export default class extends Controller {
   @service currentUser;
   @service cookies;
 
+  get user() {
+    return this.currentUser.user;
+  }
+
   @action
   logIn() {
     const sessionId = this.cookies.read().JSESSIONID || 'test';
