@@ -1,1 +1,8 @@
 {{outlet}}
+<div class="mx-4 my-2">
+  <ul>
+    {{#each this.model as |node|}}
+    <li class="pb-1">{{node.name}}|{{node.master}}|{{node.linkTo}}</li>
+    {{/each}}
+  </ul>
+</div>

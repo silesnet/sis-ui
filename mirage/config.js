@@ -6,6 +6,8 @@ export default function() {
   this.namespace = 'api';
   this.timing = 0;
 
+  this.get('/networks/nodes');
+
   this.post('/auth/token', (schema, { requestBody }) => {
     const sessionId = JSON.parse(requestBody).sessionId;
     if (sessionId) {
