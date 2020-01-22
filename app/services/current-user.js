@@ -25,6 +25,7 @@ export default class extends Service {
         })
         .then((body) => {
           this.user = { ...body };
+          return this.user;
         });
     }
     return resolve(undefined);

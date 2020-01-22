@@ -1,6 +1,5 @@
 import Route from '@ember/routing/route';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
-
 import { inject as service } from '@ember/service';
 
 export default class extends Route.extend(ApplicationRouteMixin) {
@@ -9,8 +8,7 @@ export default class extends Route.extend(ApplicationRouteMixin) {
   @service cookies;
 
   beforeModel() {
-    this._logIn();
-    return this._loadCurrentUser();
+    return this._logIn().then(this._loadCurrentUser());
   }
 
   redirect() {
@@ -31,6 +29,6 @@ export default class extends Route.extend(ApplicationRouteMixin) {
 
   _logIn() {
     const sessionId = this.cookies.read().JSESSIONID || 'test';
-    this.session.authenticate('authenticator:sis', sessionId);
+    return this.session.authenticate('authenticator:sis', sessionId);
   }
 }

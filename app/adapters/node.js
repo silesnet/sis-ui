@@ -1,9 +1,15 @@
-
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import ENV from 'sis-ui/config/environment';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service'
 
-export default class ApplicationAdapter extends JSONAPIAdapter {
+export default class extends JSONAPIAdapter {
   host = ENV.apiRootURL;
   namespace = 'api/networks';
-  authorizer =  'authorizer:oauth2';
+  @service session;
+
+  @computed get headers() {
+    const accessToken = this.session.data.authenticated.accessToken;
+    return { Authorization: `Bearer ${accessToken}` };
+  };
 }
