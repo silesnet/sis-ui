@@ -1,8 +1,10 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
 
 export default class extends Component {
+  @service search;
   @tracked hasFocus = false;
   @tracked isMouseOver = false;
   @tracked query = null;
@@ -26,6 +28,7 @@ export default class extends Component {
         this.reset();
         break;
       case 'Enter':
+        this.search.findNodes(this.query);
         // this.reset();
         break;
     }

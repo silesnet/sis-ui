@@ -1,7 +1,5 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
-export default Route.extend({
-  model() {
-    return this.store.query('node', { q: 'bystrice' });
-  }
-});
+export default class extends Route {
+}

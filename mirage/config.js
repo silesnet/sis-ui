@@ -6,7 +6,9 @@ export default function() {
   this.namespace = 'api';
   this.timing = 0;
 
-  this.get('/networks/nodes');
+  this.get('/networks/nodes', (schema, { queryParams }) => {
+    return schema.nodes.where((node) => node.name.includes(queryParams.q));
+  });
 
   this.post('/auth/token', (schema, { requestBody }) => {
     const sessionId = JSON.parse(requestBody).sessionId;
@@ -29,7 +31,7 @@ export default function() {
       login: 'ikaleta',
       fullName: 'Ivo Kaleta',
       division: 'CZ',
-      roles: ['ROLE_USER']
+      roles: ['ROLE_USER'],
     };
   });
 }
