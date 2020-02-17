@@ -15,7 +15,8 @@ export default function() {
           node.master.startsWith(queryParams.master || '') &&
           node.area.startsWith(queryParams.area || '') &&
           node.linkTo.startsWith(queryParams.linkTo || '') &&
-          node.vendor.startsWith(queryParams.vendor || ''),
+          node.vendor.toLowerCase().startsWith(queryParams.vendor || '') &&
+          node.country.toLowerCase().startsWith(queryParams.country || ''),
       );
   });
 
