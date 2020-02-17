@@ -7,6 +7,6 @@ export default class NodeModel extends Model {
   @attr vendor;
   @attr model;
   @attr linkTo;
-  @attr rstpNumRing;
-  @attr backupPath;
+  @attr country;
+  @attr frequency;
 }

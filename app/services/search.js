@@ -11,8 +11,7 @@ export default class extends Service {
 
   findNodes(query) {
     this.query = query;
-    return this.store.query('node', { q: query })
-    .then(nodes => {
+    return this.store.query('node', { name: query }).then((nodes) => {
       this.answer = nodes.toArray();
       return nodes;
     });

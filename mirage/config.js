@@ -7,7 +7,16 @@ export default function() {
   this.timing = 0;
 
   this.get('/networks/nodes', (schema, { queryParams }) => {
-    return schema.nodes.where((node) => node.name.includes(queryParams.q));
+    return schema.nodes
+      .all()
+      .filter(
+        (node) =>
+          node.name.startsWith(queryParams.name || '') &&
+          node.master.startsWith(queryParams.master || '') &&
+          node.area.startsWith(queryParams.area || '') &&
+          node.linkTo.startsWith(queryParams.linkTo || '') &&
+          node.vendor.startsWith(queryParams.vendor || ''),
+      );
   });
 
   this.post('/auth/token', (schema, { requestBody }) => {
