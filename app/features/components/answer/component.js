@@ -1,8 +1,5 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 
 export default class extends Component {
   @service search;
@@ -14,5 +11,4 @@ export default class extends Component {
   get query() {
     return this.search.query;
   }
-  
 }

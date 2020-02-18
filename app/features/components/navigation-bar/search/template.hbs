@@ -2,34 +2,19 @@
   <span>
     <Input
       class="block w-full py-2 pl-10 pr-4 text-sm leading-normal placeholder-gray-600 bg-gray-200 border border-transparent rounded-lg appearance-none focus:outline-none focus:border-gray-300 focus:bg-white focus:shadow-lg"
-      {{ ref this 'inputElement' }}
-      @value={{ this.query }}
-      @placeholder="Vyhledat síťový prvek..."
-      @autocomplete="off"
-      @spellcheck="false"
-      @type="text"
-      {{ on 'focusin' (fn (mut this.hasFocus) true)}}
-      {{ on 'focusout' (fn (mut this.hasFocus) false)}}
-      {{ on 'mouseover' (fn (mut this.isMouseOver) true)}}
-      {{ on 'mouseout' (fn (mut this.isMouseOver) false)}}
-      {{ on 'keydown' this.keyPress }}
-    />
+      {{ ref this 'inputElement' }} @value={{ this.query }} @placeholder="Vyhledat síťový prvek..." @autocomplete="off"
+      @spellcheck="false" @type="text" {{ on 'focusin' (fn (mut this.hasFocus) true)}}
+      {{ on 'focusout' (fn (mut this.hasFocus) false)}} {{ on 'mouseover' (fn (mut this.isMouseOver) true)}}
+      {{ on 'mouseout' (fn (mut this.isMouseOver) false)}} {{ on 'keydown' this.keyPress }} />
   </span>
   <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
     <svg class="w-4 h-4 text-gray-600 pointer-events-none fill-current" viewBox="0 0 20 20">
       <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
     </svg>
   </div>
-  <div
-    class="absolute inset-y-0 right-0 flex items-center mr-4"
-    {{ on 'click' this.reset }}
-    {{ on 'mouseover' (fn (mut this.isMouseOver) true)}}
-    {{ on 'mouseout' (fn (mut this.isMouseOver) false)}}
-  >
-    <svg
-      class="{{if this.showResetButton 'block' 'hidden'}} w-5 h-5 text-gray-600 fill-current"
-      viewBox="0 0 24 24"
-    >
+  <div class="absolute inset-y-0 right-0 flex items-center mr-4" {{ on 'click' this.reset }}
+    {{ on 'mouseover' (fn (mut this.isMouseOver) true)}} {{ on 'mouseout' (fn (mut this.isMouseOver) false)}}>
+    <svg class="{{if this.showResetButton 'block' 'hidden'}} w-5 h-5 text-gray-600 fill-current" viewBox="0 0 24 24">
       <path fill-rule="evenodd"
         d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />
     </svg>

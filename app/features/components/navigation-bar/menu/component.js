@@ -8,8 +8,8 @@ export default class extends Component {
 
   @action
   keyPress(event) {
-    switch(event.key) {
-      case 'Escape': 
+    switch (event.key) {
+      case 'Escape':
         event.stopPropagation();
         event.preventDefault();
         this.isOpen = false;
