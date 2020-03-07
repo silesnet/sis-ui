@@ -30,7 +30,7 @@ export default class extends Service {
     this.query = query
       .trim()
       .split(/\s+/)
-      .map((param) => param.split(/:(.+)/))
+      .map((param) => param.split(/[:.](.+)/))
       .map((parts) => [parts[0], parts[1]])
       .map((pair) =>
         pair[1] ? [paramName(pair[0]), pair[1]] : ['name', pair[0]],
