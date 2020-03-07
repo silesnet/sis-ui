@@ -49,7 +49,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
     ENV.rootURL = '/net';
-    ENV.apiRootURL = 'https://sis.silesnet.net:8090';
+    ENV.apiRootURL = 'https://sis.silesnet.net/api/v2';
   }
 
   return ENV;
