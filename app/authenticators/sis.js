@@ -5,7 +5,7 @@ import ENV from 'sis-ui/config/environment';
 
 export default class extends BaseAuthenticator {
   async authenticate(sessionId = null) {
-    const response = await fetch(`${ENV.apiRootURL}/api/auth/token`, {
+    const response = await fetch(`${ENV.apiRootURL}/auth/token`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

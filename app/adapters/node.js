@@ -5,7 +5,7 @@ import { inject as service } from '@ember/service';
 
 export default class extends JSONAPIAdapter {
   host = ENV.apiRootURL;
-  namespace = 'api/networks';
+  namespace = 'networks';
   @service session;
 
   @computed get headers() {

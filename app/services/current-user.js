@@ -12,7 +12,7 @@ export default class extends Service {
   load() {
     const accessToken = this.session.data.authenticated.accessToken;
     if (accessToken) {
-      return fetch(`${ENV.apiRootURL}/api/users/session`, {
+      return fetch(`${ENV.apiRootURL}/users/session`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
