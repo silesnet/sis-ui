@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 
 export default class extends Component {
   @service search;
@@ -8,7 +9,8 @@ export default class extends Component {
     return this.search.answer;
   }
 
-  get query() {
-    return this.search.query;
+  @action
+  findLinkTo(node) {
+    this.search.findNodes(`l.${node}`);
   }
 }

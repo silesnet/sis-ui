@@ -2,12 +2,24 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import { addObserver } from '@ember/object/observers';
 
 export default class extends Component {
   @service search;
   @tracked hasFocus = false;
   @tracked isMouseOver = false;
   @tracked query = null;
+
+  constructor() {
+    super(...arguments);
+    addObserver(this.search, 'queryValue', this, 'updateLocalQuery');
+  }
+
+  updateLocalQuery() {
+    if (this.inputElement) {
+      this.inputElement.value = this.search.queryValue;
+    }
+  }
 
   get showResetButton() {
     return !!this.query && (this.hasFocus || this.isMouseOver);

@@ -3,7 +3,7 @@ import Mirage from 'ember-cli-mirage';
 const accessToken = '1234567890';
 
 export default function() {
-  this.namespace = 'api';
+  this.namespace = '';
   this.timing = 0;
 
   this.get('/networks/nodes', (schema, { queryParams }) => {

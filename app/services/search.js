@@ -23,10 +23,12 @@ function paramName(prefix) {
 
 export default class extends Service {
   @service store;
+  @tracked queryValue;
   @tracked query;
   @tracked answer;
 
   findNodes(query) {
+    this.queryValue = query;
     this.query = query
       .trim()
       .split(/\s+/)
