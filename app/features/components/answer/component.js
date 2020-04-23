@@ -13,4 +13,9 @@ export default class extends Component {
   findLinkTo(node) {
     this.search.findNodes(`l.${node}`);
   }
+
+  @action
+  findName(node) {
+    this.search.findNodes(`n.${node}`);
+  }
 }
