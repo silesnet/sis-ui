@@ -6,6 +6,7 @@ import { addObserver } from '@ember/object/observers';
 
 export default class extends Component {
   @service search;
+  @service router;
   @tracked hasFocus = false;
   @tracked isMouseOver = false;
   @tracked query = null;
@@ -41,7 +42,7 @@ export default class extends Component {
         break;
       case 'Enter':
         this.search.findNodes(this.query);
-        // this.reset();
+        this.router.transitionTo('network');
         break;
     }
   }

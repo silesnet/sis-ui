@@ -10,16 +10,18 @@
     <span class="flex-1 px-1 text-xs text-gray-600 uppercase font-medium">Actions</span>
   </li>
   {{#each this.answer as |node|}}
-  <li class="flex px-1 py-2 border-b border-gray-400 border-solid">
-    <span class="flex-1 px-1">{{node.country}}</span>
-    <span class="flex-1 px-1 cursor-pointer text-blue-600"
-      {{on 'click' (fn this.findLinkTo node.name)}}>{{node.name}}</span>
-    <span class="flex-1 px-1">{{node.vendor}}</span>
-    <span class="flex-1 px-1 text-sm">{{node.model}}</span>
-    <span class="flex-1 px-1 cursor-pointer text-blue-600"
-      {{on 'click' (fn this.findName node.linkTo)}}>{{node.linkTo}}</span>
-    <span class="flex-1 px-1">{{node.frequency}}</span>
-    <span class="flex-1 px-1">lan, backup</span>
+  <li class="flex px-1 py-2 border-b border-gray-400 border-solid cursor-pointer hover:bg-gray-100">
+    <LinkTo @route="network.node" @model="{{node.name}}">
+      <span class="flex-1 px-1">{{node.country}}</span>
+      <span class="flex-1 px-1 cursor-pointer text-blue-600"
+        {{on 'click' (fn this.findLinkTo node.name)}}>{{node.name}}</span>
+      <span class="flex-1 px-1">{{node.vendor}}</span>
+      <span class="flex-1 px-1 text-sm">{{node.model}}</span>
+      <span class="flex-1 px-1 cursor-pointer text-blue-600"
+        {{on 'click' (fn this.findName node.linkTo)}}>{{node.linkTo}}</span>
+      <span class="flex-1 px-1">{{node.frequency}}</span>
+      <span class="flex-1 px-1">lan, backup</span>
+    </LinkTo>
   </li>
   {{/each}}
 </ul>

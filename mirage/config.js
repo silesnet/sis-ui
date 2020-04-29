@@ -6,8 +6,13 @@ export default function() {
   this.namespace = '';
   this.timing = 0;
 
+  this.get('/networks/nodes/:name', ({ nodes }, { params }) => {
+    return nodes
+      .all()
+      .filter((node) => node.id === params.name || node.name === params.name)
+      .models[0];
+  });
   this.get('/networks/node-items', (schema, { queryParams }) => {
-    console.log(schema);
     return schema.nodeItems
       .all()
       .filter(
