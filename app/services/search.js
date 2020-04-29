@@ -41,7 +41,7 @@ export default class extends Service {
         map[pair[0]] = pair[1];
         return map;
       }, {});
-    return this.store.query('node', this.query).then((nodes) => {
+    return this.store.query('node-item', this.query).then((nodes) => {
       this.answer = nodes.toArray();
       return nodes;
     });

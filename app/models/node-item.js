@@ -1,6 +1,6 @@
 import Model, { attr } from '@ember-data/model';
 
-export default class NodeModel extends Model {
+export default class NodeItemModel extends Model {
   @attr name;
   @attr master;
   @attr area;

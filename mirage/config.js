@@ -6,17 +6,18 @@ export default function() {
   this.namespace = '';
   this.timing = 0;
 
-  this.get('/networks/nodes', (schema, { queryParams }) => {
-    return schema.nodes
+  this.get('/networks/node-items', (schema, { queryParams }) => {
+    console.log(schema);
+    return schema.nodeItems
       .all()
       .filter(
-        (node) =>
-          node.name.startsWith(queryParams.name || '') &&
-          node.master.startsWith(queryParams.master || '') &&
-          node.area.startsWith(queryParams.area || '') &&
-          node.linkTo.startsWith(queryParams.linkTo || '') &&
-          node.vendor.toLowerCase().startsWith(queryParams.vendor || '') &&
-          node.country.toLowerCase().startsWith(queryParams.country || ''),
+        (nodeItem) =>
+          nodeItem.name.startsWith(queryParams.name || '') &&
+          nodeItem.master.startsWith(queryParams.master || '') &&
+          nodeItem.area.startsWith(queryParams.area || '') &&
+          nodeItem.linkTo.startsWith(queryParams.linkTo || '') &&
+          nodeItem.vendor.toLowerCase().startsWith(queryParams.vendor || '') &&
+          nodeItem.country.toLowerCase().startsWith(queryParams.country || ''),
       );
   });
 
