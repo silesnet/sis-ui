@@ -13,7 +13,7 @@ export default class extends Controller {
 
   @action
   logIn() {
-    const sessionId = this.cookies.read().JSESSIONID || 'test';
+    const sessionId = this.cookies.read().JSESSIONID || 'TEST_SESSION_ID';
     this.session.authenticate('authenticator:sis', sessionId);
   }
 

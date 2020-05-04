@@ -28,7 +28,7 @@ export default class extends Route.extend(ApplicationRouteMixin) {
   }
 
   _logIn() {
-    const sessionId = this.cookies.read().JSESSIONID || 'test';
+    const sessionId = this.cookies.read().JSESSIONID || 'TEST_SESSION_ID';
     return this.session.authenticate('authenticator:sis', sessionId);
   }
 }

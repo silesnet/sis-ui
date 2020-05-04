@@ -34,6 +34,10 @@ module.exports = function(environment) {
     ENV.apiRootURL = '';
   }
 
+  if (environment === 'it') {
+    ENV.apiRootURL = 'http://localhost:8090/api';
+  }
+
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
