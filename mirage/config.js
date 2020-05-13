@@ -6,6 +6,12 @@ export default function() {
   this.namespace = '';
   this.timing = 0;
 
+  this.patch('/networks/nodes/:id', ({ nodes }, { params, requestBody }) => {
+    return nodes
+      .find(+params.id)
+      .update(JSON.parse(requestBody).data.attributes);
+  });
+
   this.get('/networks/nodes/:name', ({ nodes }, { params }) => {
     return nodes
       .all()
@@ -13,10 +19,10 @@ export default function() {
       .models[0];
   });
 
-  this.get('/networks/node-items', (schema, { queryParams }) =>
-    schema.nodeItems.all().filter((nodeItem) =>
+  this.get('/networks/node-items', ({ nodes }, { queryParams }) =>
+    nodes.all().filter((node) =>
       ['name', 'master', 'area', 'linkTo', 'vendor', 'country']
-        .map((prop) => match(nodeItem[prop], queryParams[prop]))
+        .map((prop) => match(node[prop], queryParams[prop]))
         .filter((match) => match !== undefined)
         .reduce((acc, match) => acc && match),
     ),
