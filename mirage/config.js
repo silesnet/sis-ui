@@ -12,19 +12,15 @@ export default function() {
       .filter((node) => node.id === params.name || node.name === params.name)
       .models[0];
   });
-  this.get('/networks/node-items', (schema, { queryParams }) => {
-    return schema.nodeItems
-      .all()
-      .filter(
-        (nodeItem) =>
-          nodeItem.name.startsWith(queryParams.name || '') &&
-          nodeItem.master.startsWith(queryParams.master || '') &&
-          nodeItem.area.startsWith(queryParams.area || '') &&
-          nodeItem.linkTo.startsWith(queryParams.linkTo || '') &&
-          nodeItem.vendor.toLowerCase().startsWith(queryParams.vendor || '') &&
-          nodeItem.country.toLowerCase().startsWith(queryParams.country || ''),
-      );
-  });
+
+  this.get('/networks/node-items', (schema, { queryParams }) =>
+    schema.nodeItems.all().filter((nodeItem) =>
+      ['name', 'master', 'area', 'linkTo', 'vendor', 'country']
+        .map((prop) => match(nodeItem[prop], queryParams[prop]))
+        .filter((match) => match !== undefined)
+        .reduce((acc, match) => acc && match),
+    ),
+  );
 
   this.post('/auth/token', (schema, { requestBody }) => {
     const sessionId = JSON.parse(requestBody).sessionId;
@@ -51,3 +47,14 @@ export default function() {
     };
   });
 }
+
+const match = (value, query) => {
+  if (!value || !query) {
+    return undefined;
+  }
+  return query[query.length - 1] === '*'
+    ? value
+        .toLowerCase()
+        .startsWith(query.substring(0, query.length - 1).toLowerCase())
+    : value.toLowerCase() === query.toLowerCase();
+};
