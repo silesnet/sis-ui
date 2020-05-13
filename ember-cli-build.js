@@ -6,10 +6,13 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     postcssOptions: {
       compile: {
+        enabled: true,
         plugins: [
-          require('postcss-import'),
-          require('tailwindcss')('./app/tailwind/config.js'),
+          require('tailwindcss')('./app/styles/tailwind.config.js'),
+          require('autoprefixer'),
         ],
+        cacheExclude: [],
+        cacheInclude: [/.*\.(css|scss)$/, /.tailwind\.config\.js$/],
       },
     },
   });
