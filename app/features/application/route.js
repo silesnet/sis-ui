@@ -11,8 +11,10 @@ export default class extends Route.extend(ApplicationRouteMixin) {
     return this._logIn().then(this._loadCurrentUser());
   }
 
-  redirect() {
-    this.transitionTo('network');
+  redirect(model, transition) {
+    if (transition.to.name === 'index') {
+      this.transitionTo('network');
+    }
   }
 
   async sessionAuthenticated() {
