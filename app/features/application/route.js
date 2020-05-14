@@ -18,7 +18,7 @@ export default class extends Route.extend(ApplicationRouteMixin) {
   }
 
   async sessionAuthenticated() {
-    const _super = this._super;
+    const _super = this._super; // eslint-disable-line
     await this._loadCurrentUser();
     _super.call(this, ...arguments);
   }

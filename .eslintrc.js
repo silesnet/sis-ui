@@ -28,6 +28,7 @@ module.exports = {
         '.template-lintrc.js',
         'ember-cli-build.js',
         'postcss.config.js',
+        'app/styles/tailwind.config.js',
         'testem.js',
         'blueprints/*/index.js',
         'config/**/*.js',

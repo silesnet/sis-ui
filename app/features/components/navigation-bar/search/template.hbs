@@ -13,7 +13,7 @@
     </svg>
   </div>
   <div class="absolute inset-y-0 right-0 flex items-center mr-4" {{ on 'click' this.reset }}
-    {{ on 'mouseover' (fn (mut this.isMouseOver) true)}} {{ on 'mouseout' (fn (mut this.isMouseOver) false)}}>
+    {{ on 'mouseover' (fn (mut this.isMouseOver) true)}} {{ on 'mouseout' (fn (mut this.isMouseOver) false)}} role="button">
     <svg class="{{if this.showResetButton 'block' 'hidden'}} w-5 h-5 text-gray-600 fill-current" viewBox="0 0 24 24">
       <path fill-rule="evenodd"
         d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />

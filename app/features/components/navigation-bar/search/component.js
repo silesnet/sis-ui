@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+// eslint-disable-next-line
 import { addObserver } from '@ember/object/observers';
 
 export default class extends Component {
