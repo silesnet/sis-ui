@@ -42,9 +42,43 @@ export default class extends Component {
         this.reset();
         break;
       case 'Enter':
-        this.search.findNodes(this.query);
-        this.router.transitionTo('network');
+        console.log(this.query);
+        const query = this.query
+          .trim()
+          .split(/\s+/)
+          .map((param) => param.split(/[:.](.+)/))
+          .map((parts) => [parts[0], parts[1]])
+          .map((pair) =>
+            pair[1] ? [paramName(pair[0]), pair[1]] : ['name', pair[0]],
+          )
+          .reduce((map, pair) => {
+            map[pair[0]] = pair[1];
+            return map;
+          }, {});
+        // this.search.findNodes(this.query);
+        // TODO prepare query params from query and only transition
+        console.log(query);
+        this.router.transitionTo('network', { queryParams: query });
         break;
     }
+  }
+}
+
+function paramName(prefix) {
+  switch (prefix) {
+    case 'n':
+      return 'name';
+    case 'm':
+      return 'master';
+    case 'a':
+      return 'area';
+    case 'l':
+      return 'linkTo';
+    case 'v':
+      return 'vendor';
+    case 'c':
+      return 'country';
+    default:
+      return prefix;
   }
 }

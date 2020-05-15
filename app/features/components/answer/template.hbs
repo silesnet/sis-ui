@@ -1,5 +1,64 @@
 {{#if this.answer}}
-<ul>
+<div class="flex flex-col">
+  <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+    <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+      <table class="min-w-full">
+        <thead>
+          <tr>
+            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+              Country
+            </th>
+            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+              Name
+            </th>
+            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+              Vendor
+            </th>
+            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+              Model
+            </th>
+            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+              Link to
+            </th>
+            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+              Frequency
+            </th>
+            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each this.answer as |node index|}}
+            <tr class="{{if (odd index) 'bg-white' 'bg-gray-100'}} cursor-pointer hover:bg-gray-300" {{on 'click' (fn this.nodeDetail node.name)}}>
+              <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                {{node.country}}
+              </td>
+              <td class="px-6 py-4 text-sm font-medium leading-5 text-gray-700 whitespace-no-wrap">
+                {{node.name}}
+              </td>
+              <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                {{node.vendor}}
+              </td>
+              <td class="px-6 py-4 text-sm leading-5 text-gray-500">
+                <small>{{node.model}}</small>
+              </td>
+              <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                {{node.linkTo}}
+              </td>
+              <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                {{node.frequency}}
+              </td>
+              <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                Action
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{{!-- <ul>
   <li class="flex px-1 py-2 border-b border-gray-400 border-solid">
     <span class="flex-1 px-1 text-xs font-medium text-gray-600 uppercase">Country</span>
     <span class="flex-1 px-1 text-xs font-medium text-gray-600 uppercase">Name</span>
@@ -25,6 +84,118 @@
   </li>
   {{/each}}
 </ul>
+<div class="flex flex-col">
+  <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+    <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+      <table class="min-w-full">
+        <thead>
+          <tr>
+            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+              Name
+            </th>
+            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+              Title
+            </th>
+            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+              Email
+            </th>
+            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+              Role
+            </th>
+            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white">
+            <td class="px-6 py-4 text-sm font-medium leading-5 text-gray-900 whitespace-no-wrap">
+              Bernard Lane
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              Director, Human Resources
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              bernardlane@example.com
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              Owner
+            </td>
+            <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap">
+              <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+            </td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-6 py-4 text-sm font-medium leading-5 text-gray-900 whitespace-no-wrap">
+              Bernard Lane
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              Director, Human Resources
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              bernardlane@example.com
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              Owner
+            </td>
+            <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap">
+              <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+            </td>
+          </tr>
+          <tr class="bg-white">
+            <td class="px-6 py-4 text-sm font-medium leading-5 text-gray-900 whitespace-no-wrap">
+              Bernard Lane
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              Director, Human Resources
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              bernardlane@example.com
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              Owner
+            </td>
+            <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap">
+              <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+            </td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-6 py-4 text-sm font-medium leading-5 text-gray-900 whitespace-no-wrap">
+              Bernard Lane
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              Director, Human Resources
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              bernardlane@example.com
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              Owner
+            </td>
+            <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap">
+              <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+            </td>
+          </tr>
+          <tr class="bg-white">
+            <td class="px-6 py-4 text-sm font-medium leading-5 text-gray-900 whitespace-no-wrap">
+              Bernard Lane
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              Director, Human Resources
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              bernardlane@example.com
+            </td>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+              Owner
+            </td>
+            <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap">
+              <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> --}}
 {{else}}
 <p>Nebyl nalezen žáden záznam.</p>
 {{/if}}
