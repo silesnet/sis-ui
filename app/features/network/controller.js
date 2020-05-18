@@ -23,7 +23,6 @@ export default class NetworkController extends Controller {
       v: this.vendor,
       c: this.country,
     };
-    console.log(params);
     const query = Object.keys(params)
       .reduce((acc, key) => {
         return !!params[key] ? acc + ` ${key}.${params[key]}` : acc;

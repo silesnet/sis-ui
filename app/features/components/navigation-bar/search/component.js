@@ -42,7 +42,6 @@ export default class extends Component {
         this.reset();
         break;
       case 'Enter':
-        console.log(this.query);
         const query = this.query
           .trim()
           .split(/\s+/)
@@ -57,7 +56,6 @@ export default class extends Component {
           }, {});
         // this.search.findNodes(this.query);
         // TODO prepare query params from query and only transition
-        console.log(query);
         this.router.transitionTo('network', { queryParams: query });
         break;
     }

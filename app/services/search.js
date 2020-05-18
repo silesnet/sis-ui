@@ -28,7 +28,7 @@ export default class extends Service {
   @tracked answer;
 
   findNodes(query) {
-    this.queryValue = query;
+    this.queryValue = query.replace(/n\.(.*)( ?)/, '$1$2');
     this.query = query
       .trim()
       .split(/\s+/)

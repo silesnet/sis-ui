@@ -1,11 +1,14 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class extends Controller {
   @service session;
   @service currentUser;
   @service cookies;
+
+  @tracked currentTab = 'network';
 
   get user() {
     return this.currentUser.user;

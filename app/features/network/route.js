@@ -25,13 +25,10 @@ export default class extends Route {
   };
 
   model(params) {
-    console.log('model', arguments);
-
     return params;
   }
 
   setupController(controller, params) {
-    console.log('setup', params);
     controller.performSearch();
   }
 }
