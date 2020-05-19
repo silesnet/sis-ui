@@ -42,20 +42,20 @@ export default class extends Component {
         this.reset();
         break;
       case 'Enter':
-        const query = this.query
-          .trim()
-          .split(/\s+/)
-          .map((param) => param.split(/[:.](.+)/))
-          .map((parts) => [parts[0], parts[1]])
-          .map((pair) =>
-            pair[1] ? [paramName(pair[0]), pair[1]] : ['name', pair[0]],
-          )
-          .reduce((map, pair) => {
-            map[pair[0]] = pair[1];
-            return map;
-          }, {});
-        // this.search.findNodes(this.query);
-        // TODO prepare query params from query and only transition
+        const query = normalize(
+          this.query
+            .trim()
+            .split(/\s+/)
+            .map((param) => param.split(/[:.](.+)/))
+            .map((parts) => [parts[0], parts[1]])
+            .map((pair) =>
+              pair[1] ? [paramName(pair[0]), pair[1]] : ['name', pair[0]],
+            )
+            .reduce((map, pair) => {
+              map[pair[0]] = pair[1];
+              return map;
+            }, {}),
+        );
         this.router.transitionTo('network', { queryParams: query });
         break;
     }
@@ -79,4 +79,27 @@ function paramName(prefix) {
     default:
       return prefix;
   }
+}
+
+function normalize(query) {
+  const normalized = { ...query };
+  if (!query.name) {
+    query.name = undefined;
+  }
+  if (!query.master) {
+    query.master = undefined;
+  }
+  if (!query.area) {
+    query.area = undefined;
+  }
+  if (!query.linkTo) {
+    query.linkTo = undefined;
+  }
+  if (!query.vendor) {
+    query.vendor = undefined;
+  }
+  if (!query.country) {
+    query.country = undefined;
+  }
+  return normalized;
 }

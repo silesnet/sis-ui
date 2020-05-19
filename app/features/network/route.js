@@ -4,7 +4,6 @@ export default class extends Route {
   queryParams = {
     name: {
       refreshModel: true,
-      replace: true,
     },
     master: {
       refreshModel: true,
@@ -20,11 +19,11 @@ export default class extends Route {
     },
     country: {
       refreshModel: true,
-      replace: true,
     },
   };
 
   model(params) {
+    console.log('network route params', params);
     return params;
   }
 
