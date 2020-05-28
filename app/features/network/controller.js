@@ -1,11 +1,14 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 
 export default class NetworkController extends Controller {
   queryParams = ['name', 'master', 'area', 'linkTo', 'vendor', 'country'];
 
   @service search;
+  @service query;
+  @service router;
 
   @tracked name;
   @tracked master;
@@ -14,6 +17,53 @@ export default class NetworkController extends Controller {
   @tracked vendor;
   @tracked country;
 
+  get hasContent() {
+    return !!this.model;
+  }
+
+  get items() {
+    return this.model;
+  }
+
+  constructor() {
+    super(...arguments);
+    this.query.events.on('submit', (query) => {
+      const params = query
+        .trim()
+        .split(/\s+/)
+        .map((param) => param.split(/[:.](.+)/))
+        .map((parts) => [parts[0], parts[1]])
+        .map((pair) =>
+          pair[1] ? [paramName(pair[0]), pair[1]] : ['name', pair[0]],
+        )
+        .reduce((map, pair) => {
+          map[pair[0]] = pair[1];
+          return map;
+        }, {});
+      this.name = params.name || undefined;
+      this.master = params.master || undefined;
+      this.area = params.area || undefined;
+      this.linkTo = params.linkTo || undefined;
+      this.vendor = params.vendor || undefined;
+      this.v = params.vendor || undefined;
+      this.country = params.country || undefined;
+    });
+  }
+
+  @action
+  nodeDetail(name) {
+    this.router.transitionTo('network.node', name);
+  }
+
+  @action
+  findLinkTo(node) {
+    this.search.findNodes(`l.${node}`);
+  }
+
+  @action
+  findName(node) {
+    this.search.findNodes(`n.${node}`);
+  }
   performSearch() {
     const params = {
       n: this.name,
@@ -31,5 +81,24 @@ export default class NetworkController extends Controller {
     if (query) {
       this.search.findNodes(query);
     }
+  }
+}
+
+function paramName(prefix) {
+  switch (prefix) {
+    case 'n':
+      return 'name';
+    case 'm':
+      return 'master';
+    case 'a':
+      return 'area';
+    case 'l':
+      return 'linkTo';
+    case 'v':
+      return 'vendor';
+    case 'c':
+      return 'country';
+    default:
+      return prefix;
   }
 }

@@ -24,7 +24,10 @@ export default function() {
       ['name', 'master', 'area', 'linkTo', 'vendor', 'country']
         .map((prop) => match(node[prop], queryParams[prop]))
         .filter((match) => match !== undefined)
-        .reduce((acc, match) => acc && match),
+        .reduce(
+          (acc, match, index) => (index === 0 ? true : acc) && match,
+          false,
+        ),
     ),
   );
 
