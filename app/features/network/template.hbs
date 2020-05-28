@@ -37,7 +37,7 @@
               </thead>
               <tbody>
                 {{#each this.items as |node index|}}
-                  <tr class="{{if (odd index) 'bg-white' 'bg-gray-100'}} cursor-pointer hover:bg-gray-300"
+                  <tr class="{{if (odd index) 'bg-white' 'bg-gray-100'}} cursor-pointer"
                     {{on 'click' (fn this.nodeDetail node.name)}}>
                     <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
                       {{node.country}}
