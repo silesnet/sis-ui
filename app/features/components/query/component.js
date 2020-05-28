@@ -6,7 +6,6 @@ import { inject as service } from '@ember/service';
 import { addObserver } from '@ember/object/observers';
 
 export default class extends Component {
-  @service search;
   @service router;
   @service('query') queryService;
 
@@ -19,12 +18,6 @@ export default class extends Component {
     this.queryService.events.on('update', (current, late) => {
       this.value = current;
     });
-  }
-
-  updateLocalQuery() {
-    if (this.inputElement) {
-      this.inputElement.value = this.search.queryValue;
-    }
   }
 
   get showResetButton() {

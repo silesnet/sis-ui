@@ -6,7 +6,6 @@ import { action } from '@ember/object';
 export default class NetworkController extends Controller {
   queryParams = ['name', 'master', 'area', 'linkTo', 'vendor', 'country'];
 
-  @service search;
   @service query;
   @service router;
 

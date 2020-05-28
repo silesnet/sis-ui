@@ -1,6 +1,5 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import { action } from '@ember/object';
 import QueryTemplate from '../../helpers/query-template';
 
 export default class extends Route {
