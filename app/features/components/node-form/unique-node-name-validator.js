@@ -3,7 +3,7 @@ export default function validateUniqueness() {
     if (typeof changes.name === 'undefined') {
       return true;
     }
-    return content.store.query('node-item', { name: newValue }).then(
+    return content.store.query('node-item', { name: newValue.trim() }).then(
       (items) => (items.toArray().length ? 'name already taken' : true),
       () => true,
     );
