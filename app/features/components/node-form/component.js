@@ -23,8 +23,26 @@ export default class extends Component {
   }
 
   get errors() {
-    console.log(this.changeset.error);
     return this.changeset.error;
+  }
+
+  get masters() {
+    return ['a', 'b', 'c'];
+  }
+
+  @action
+  addMaster(master) {
+    return !this.masters.includes(master);
+  }
+
+  @action
+  choosenMaster(master) {
+    this.changeset.master = master;
+  }
+  @action
+  createMaster(master) {
+    console.log('creating maseter', master);
+    this.changeset.master = master;
   }
 
   @action

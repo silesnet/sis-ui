@@ -38,5 +38,27 @@
       <div class="w-4/12 ml-4">
       </div>
     </div>
+    <div class="flex">
+      <div class="flex justify-end w-1/12 mr-6">
+        <label for="node-type" class="sr-only">Typ</label>
+      </div>
+      <div class="w-6/12 px-4">
+        <PowerSelectWithCreate class="block w-full form-input sm:text-sm sm:leading-5" @options={{this.masters}}
+          @selected={{this.changeset.master}} @onChange={{this.choosenMaster}} @searchEnabled={{true}}
+          @onCreate={{this.createMaster}} @showCreateWhen={{this.addMaster}} as |master|>
+          {{master}}
+        </PowerSelectWithCreate>
+        {{!-- <div class="relative rounded-md shadow-sm">
+          <Input id="name" @type="text" @value={{this.changeset.type}}
+            class="{{if this.changeset.isInvalid 'text-red-500'}} block w-full form-input sm:text-sm sm:leading-5"
+            placeholder="Typ" />
+          {{#each this.errors.type.validation as |error| }}
+            <p class="text-red-500">{{ error }}</p>
+          {{/each}}
+        </div> --}}
+      </div>
+      <div class="w-4/12 ml-4">
+      </div>
+    </div>
   </form>
 </div>

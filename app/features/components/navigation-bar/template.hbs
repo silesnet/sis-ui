@@ -1,12 +1,14 @@
 <nav class="w-full pb-4">
-  <div class="flex items-center px-4 pt-4 bg-white -18">
+  <div class="flex items-center px-4 pt-4 bg-white">
     <a href="https://sis.silesnet.net" class="block text-gray-700" tabindex="-1">
       <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
         <path
           d="M13 20v-5h-2v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7.59l-.3.3a1 1 0 1 1-1.4-1.42l9-9a1 1 0 0 1 1.4 0l9 9a1 1 0 0 1-1.4 1.42l-.3-.3V20a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2zm5 0v-9.59l-6-6-6 6V20h3v-5c0-1.1.9-2 2-2h2a2 2 0 0 1 2 2v5h3z" />
       </svg>
     </a>
-    <Query class="flex-grow ml-4" />
+    <div id="navigation-bar-icons" class="mx-3">
+    </div>
+    <Query class="flex-grow" />
     <div class="ml-4 text-gray-500">
       {{@login}} |
       <span class="text-sm">{{@division}}</span>
