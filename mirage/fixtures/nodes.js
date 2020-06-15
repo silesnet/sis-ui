@@ -2,6 +2,7 @@ export default [
   {
     id: 1001,
     name: 'root',
+    type: 'ROUTER',
     master: '',
     area: 'nix',
     path: '/',
@@ -13,6 +14,7 @@ export default [
   {
     id: 1002,
     name: 'tesin',
+    type: 'ROUTER',
     master: '',
     area: 'tesin',
     path: '/root',
@@ -24,6 +26,7 @@ export default [
   {
     id: 1003,
     name: 'polni',
+    type: 'SWITCH',
     master: 'tesin',
     area: 'polni',
     path: '/root/tesin',
@@ -31,11 +34,12 @@ export default [
     model: 'B24',
     linkTo: 'tesin',
     country: 'CZ',
-    frequency: 2300
+    frequency: 2300,
   },
   {
     id: 1004,
     name: 'slezska',
+    type: 'SWITCH',
     master: 'tesin',
     area: 'slezska',
     path: '/root/tesin',
@@ -43,11 +47,12 @@ export default [
     model: 'PowerBeam M5 400 - 25 dBi',
     linkTo: 'tesin',
     country: 'CZ',
-    frequency: 7305
+    frequency: 7305,
   },
   {
     id: 1005,
     name: 'polni-25',
+    type: 'BRIDGE-AP',
     master: 'tesin',
     area: 'polni',
     path: '/root/tesin/polni',
@@ -55,11 +60,12 @@ export default [
     model: 'NanoStation loco M5 Built in - 13 dBi',
     linkTo: 'polni',
     country: 'CZ',
-    frequency: 2200
+    frequency: 2200,
   },
   {
     id: 1006,
     name: 'polni-50',
+    type: 'BRIDGE-AP',
     master: 'tesin',
     area: 'polni',
     path: '/root/tesin/polni',
@@ -67,11 +73,12 @@ export default [
     model: 'PowerBeam M5 400 - 25 dBi',
     linkTo: 'polni',
     country: 'CZ',
-    frequency: 7400
+    frequency: 7400,
   },
   {
     id: 1007,
     name: 'slezska-20',
+    type: 'BRIDGE-BR',
     master: 'tesin',
     area: 'slezska',
     path: '/root/tesin/slezska',
@@ -79,11 +86,12 @@ export default [
     model: 'NanoStation loco M5 Built in - 13 dBi',
     linkTo: 'slezska',
     country: 'CZ',
-    frequency: 2400
+    frequency: 2400,
   },
   {
     id: 1008,
     name: 'frydek',
+    type: 'ROUTER',
     master: '',
     area: 'hlavni',
     path: '/root',
@@ -95,6 +103,7 @@ export default [
   {
     id: 1009,
     name: 'tovarni',
+    type: 'SWITCH',
     master: '',
     area: 'tovarni',
     path: '/root/frydek',
@@ -102,11 +111,12 @@ export default [
     model: 'PowerBeam M2 400 - 18 dBi',
     linkTo: 'frydek',
     country: 'CZ',
-    frequency: 3300
+    frequency: 3300,
   },
   {
     id: 1010,
     name: 'tovarni-12',
+    type: 'BRIDGE-STATION',
     master: 'frydek',
     area: 'tovarni',
     path: '/root/frydek/tovarni',
@@ -114,11 +124,12 @@ export default [
     model: 'NanoBeam M5 Built in - 16 dBi',
     linkTo: 'tovarni',
     country: 'CZ',
-    frequency: 7200
+    frequency: 7200,
   },
   {
     id: 2001,
     name: 'root2',
+    type: 'ROUTER',
     master: '',
     area: 'pl-nix',
     path: '/',
@@ -130,6 +141,7 @@ export default [
   {
     id: 2002,
     name: 'cieszyn',
+    type: 'ROUTER',
     master: '',
     area: 'cieszyn',
     path: '/root2',
@@ -141,6 +153,7 @@ export default [
   {
     id: 2003,
     name: 'krotka',
+    type: 'SWITCH',
     master: 'cieszyn',
     area: 'krotka',
     path: '/root2/cieszyn',
@@ -148,11 +161,12 @@ export default [
     model: 'B24',
     linkTo: 'cieszyn',
     country: 'PL',
-    frequency: 7200
+    frequency: 7200,
   },
   {
     id: 2004,
     name: 'krotka-39',
+    type: 'BRIDGE',
     master: 'cieszyn',
     area: 'krotka',
     path: '/root2/cieszyn/krotka',
@@ -160,6 +174,6 @@ export default [
     model: 'NanoStation loco M5 Built in - 13 dBi',
     linkTo: 'krotka',
     country: 'PL',
-    frequency: 5400
-  }
+    frequency: 5400,
+  },
 ];
