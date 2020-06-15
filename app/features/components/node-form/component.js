@@ -26,8 +26,24 @@ export default class extends Component {
     return this.changeset.error;
   }
 
+  get errorsJson() {
+    return JSON.stringify(this.changeset, null, 2);
+  }
+
+  get types() {
+    return [
+      'OTHER',
+      'ROUTER',
+      'BRIDGE',
+      'BRIDGE-AP',
+      'BRIDGE-BR',
+      'BRIDGE-STATION',
+      'SWITCH',
+    ];
+  }
+
   get masters() {
-    return ['a', 'b', 'c'];
+    return ['<není>', 'tesin', 'tovarni', 'cieszyn'];
   }
 
   @action
@@ -35,10 +51,6 @@ export default class extends Component {
     return !this.masters.includes(master);
   }
 
-  @action
-  choosenMaster(master) {
-    this.changeset.master = master;
-  }
   @action
   createMaster(master) {
     console.log('creating maseter', master);
