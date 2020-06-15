@@ -3,4 +3,6 @@ import validateNameUniqueness from './unique-node-name-validator';
 
 export default {
   name: [validatePresence(true), validateNameUniqueness()],
+  type: [validatePresence(true)],
+  master: [validatePresence(true)],
 };
