@@ -27,7 +27,7 @@ export default class extends Component {
   }
 
   get errorsJson() {
-    return JSON.stringify(this.changeset, null, 2);
+    return JSON.stringify(this.changeset.error, null, 2);
   }
 
   get types() {
@@ -46,19 +46,25 @@ export default class extends Component {
     return ['<není>', 'tesin', 'tovarni', 'cieszyn'];
   }
 
+  get vendors() {
+    return ['<není>', 'TP-Link', 'Mimosa', 'Ubiquiti', 'TP-Link'];
+  }
+
   @action
   addMaster(master) {
     return !this.masters.includes(master);
   }
 
   @action
-  createMaster(master) {
-    console.log('creating maseter', master);
-    this.changeset.master = master;
+  selectNotFoundValue(select, event) {
+    if (event.key === 'Enter') {
+      select.actions.select(select.searchText);
+    }
   }
 
   @action
   submit() {
+    this.changeset.validate();
     this.args.onSubmit(this.changeset);
   }
 

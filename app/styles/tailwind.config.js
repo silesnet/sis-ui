@@ -8,5 +8,11 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/ui')],
+  plugins: [
+    require('@tailwindcss/ui'),
+    require('@frontile/forms/tailwind'),
+    require('@frontile/buttons/tailwind'),
+    require('@frontile/overlays/tailwind'),
+    require('@frontile/notifications/tailwind'),
+  ],
 };

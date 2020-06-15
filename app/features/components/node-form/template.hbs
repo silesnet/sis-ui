@@ -1,6 +1,6 @@
 <div class="px-4 py-4">
-  <form {{on 'keydown' this.keyPress}}>
-    <div class="flex">
+  <ChangesetForm @changeset={{this.changeset}} as |Form changeset|>
+    <div class="flex mb-4">
       <div class="flex justify-end w-1/12 mr-6">
         <LinkTo @route="network">
           <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
@@ -10,55 +10,24 @@
           </svg></LinkTo>
       </div>
       <div class="w-6/12 px-4">
-        {{ this.changeset.path }}
-      </div>
-      <div class="w-4/12 ml-4">
-        <span class="inline-flex rounded-md shadow-sm">
-          <button {{on 'click' (fn this.submit)}} type="button"
-            class="{{if this.disableSubmit 'opacity-50 cursor-not-allowed'}} inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">
-            Uložit
-          </button>
-        </span>
-      </div>
-    </div>
-    <div class="flex">
-      <div class="flex justify-end w-1/12 mr-6">
-        <label for="name" class="">Název</label>
-      </div>
-      <div class="w-6/12 px-4">
-        <div class="relative rounded-md shadow-sm">
-          <Input id="name" @type="text" @value={{this.changeset.name}}
-            class="{{if this.changeset.isInvalid 'text-red-500'}} block w-full form-input sm:text-sm sm:leading-5"
-            placeholder="Název" />
-          {{#each this.errors.name.validation as |error| }}
-            <p class="text-red-500">{{ error }}</p>
-          {{/each}}
-        </div>
-      </div>
-      <div class="w-4/12 ml-4">
-      </div>
-    </div>
-    <div class="flex">
-      <div class="flex justify-end w-1/12 mr-6">
-        <label for="node-type" class="sr-only">Typ</label>
-      </div>
-      <div class="w-6/12 px-4">
-        <PowerSelectWithCreate class="block w-full form-input sm:text-sm sm:leading-5" @options={{this.masters}}
-          @selected={{this.changeset.master}} @onChange={{this.choosenMaster}} @searchEnabled={{true}}
-          @onCreate={{this.createMaster}} @showCreateWhen={{this.addMaster}} as |master|>
+        {{!-- <Form.Input @fieldName="name" placeholder="Název" @errors={{this.changeset.error.name.validation}} /> --}}
+        <Form.Input @fieldName="name" placeholder="Název" />
+        <Form.Select @fieldName="type" @placeholder="Typ" @options={{this.types}} @containerClass="mt-4" as |type|>
+          {{type}}
+        </Form.Select>
+        <Form.Select @fieldName="master" @placeholder="Master" @options={{this.masters}} @searchEnabled={{true}}
+          @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |master|>
           {{master}}
-        </PowerSelectWithCreate>
-        {{!-- <div class="relative rounded-md shadow-sm">
-          <Input id="name" @type="text" @value={{this.changeset.type}}
-            class="{{if this.changeset.isInvalid 'text-red-500'}} block w-full form-input sm:text-sm sm:leading-5"
-            placeholder="Typ" />
-          {{#each this.errors.type.validation as |error| }}
-            <p class="text-red-500">{{ error }}</p>
-          {{/each}}
-        </div> --}}
+        </Form.Select>
+        <Form.Select @fieldName="vendor" @placeholder="Vendor" @options={{this.vendors}} @searchEnabled={{true}}
+          @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}} @containerClass="mt-4" as
+          |vendor|>
+          {{vendor}}
+        </Form.Select>
       </div>
       <div class="w-4/12 ml-4">
+        <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}}>Submit</Button>
       </div>
     </div>
-  </form>
+  </ChangesetForm>
 </div>
