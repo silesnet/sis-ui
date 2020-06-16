@@ -10,7 +10,7 @@
           </svg></LinkTo>
       </div>
       <div class="w-6/12 px-4">
-        {{!-- <Form.Input @fieldName="name" placeholder="Název" @errors={{this.changeset.error.name.validation}} /> --}}
+        <p class="mb-2 text-gray-500">{{changeset.path}}</p>
         <Form.Input @fieldName="name" placeholder="Název" />
         <Form.Select @fieldName="type" @placeholder="Typ" @options={{this.types}} @containerClass="mt-4" as |type|>
           {{type}}
