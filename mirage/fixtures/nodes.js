@@ -93,7 +93,7 @@ export default [
     name: 'frydek',
     type: 'ROUTER',
     master: '',
-    area: 'hlavni',
+    area: 'frydek',
     path: '/root',
     vendor: 'Ubiquiti',
     model: 'NanoStation loco M5 Built in - 13 dBi',

@@ -22,12 +22,12 @@ export default class extends Component {
     return this.changeset.isInvalid || this.changeset.isPristine;
   }
 
-  get errors() {
-    return this.changeset.error;
-  }
-
   get errorsJson() {
     return JSON.stringify(this.changeset.error, null, 2);
+  }
+
+  get changesetJson() {
+    return JSON.stringify(this.changeset.change, null, 2);
   }
 
   get types() {
@@ -46,13 +46,59 @@ export default class extends Component {
     return ['<není>', 'tesin', 'tovarni', 'cieszyn'];
   }
 
-  get vendors() {
-    return ['<není>', 'TP-Link', 'Mimosa', 'Ubiquiti', 'TP-Link'];
+  get links() {
+    return [
+      '<není>',
+      'root',
+      'root2',
+      'tesin',
+      'frydek',
+      'cieszyn',
+      'polni',
+      'slezska',
+      'tovarni',
+      'krotka',
+      'polni-25',
+      'polni-50',
+      'slezska-20',
+      'tovarni-12',
+      'krotka-39',
+    ];
   }
 
-  @action
-  addMaster(master) {
-    return !this.masters.includes(master);
+  get areas() {
+    return [
+      'nix',
+      'pl-nix',
+      'tesin',
+      'frydek',
+      'cieszyn',
+      'polni',
+      'slezska',
+      'tovarni',
+      'krotka',
+    ];
+  }
+
+  get vendors() {
+    return ['<není>', 'TP-Link', 'Mimosa', 'Ubiquiti'];
+  }
+
+  get models() {
+    return [
+      '<není>',
+      'TL-SG3210 1.0',
+      'TL-WR840N',
+      'B24',
+      'PowerBeam M5 400 - 25 dBi',
+      'NanoStation loco M5 Built in - 13 dBi',
+      'PowerBeam M2 400 - 18 dBi',
+      'NanoBeam M5 Built in - 16 dBi',
+    ];
+  }
+
+  get monitorings() {
+    return ['NONE', 'PING', 'PING-SMS'];
   }
 
   @action

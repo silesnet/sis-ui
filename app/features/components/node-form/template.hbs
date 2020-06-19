@@ -1,8 +1,8 @@
 <div class="px-4 py-4">
   <ChangesetForm @changeset={{this.changeset}} as |Form changeset|>
     <div class="flex mb-4">
-      <div class="flex justify-end w-1/12 mr-6">
-        <LinkTo @route="network">
+      <div class="flex justify-end w-1/12 h-auto mr-6">
+        <LinkTo @route="network" class="h-6">
           <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
             <path
               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
@@ -19,14 +19,40 @@
           @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |master|>
           {{master}}
         </Form.Select>
+        <Form.Select @fieldName="linkTo" @placeholder="Link to" @options={{this.links}} @searchEnabled={{true}}
+          @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |linkTo|>
+          {{linkTo}}
+        </Form.Select>
+        <Form.Select @fieldName="area" @placeholder="Area" @options={{this.areas}} @searchEnabled={{true}}
+          @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |area|>
+          {{area}}
+        </Form.Select>
         <Form.Select @fieldName="vendor" @placeholder="Vendor" @options={{this.vendors}} @searchEnabled={{true}}
           @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}} @containerClass="mt-4" as
           |vendor|>
           {{vendor}}
         </Form.Select>
+        <Form.Select @fieldName="model" @placeholder="Model" @options={{this.models}} @searchEnabled={{true}}
+          @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}} @containerClass="mt-4" as
+          |model|>
+          {{model}}
+        </Form.Select>
+        <Form.Input @fieldName="info" placeholder="Poznámka" class="mt-4" />
+        <Form.Select @fieldName="monitoring" @placeholder="Monitoring" @options={{this.monitorings}}
+          @containerClass="mt-4 mb-4" as |monitoring|>
+          {{monitoring}}
+        </Form.Select>
+        <Form.Checkbox @fieldName="isWireless" @label="Wireless" />
+        <Form.Checkbox @fieldName="active" @label="Active" />
       </div>
       <div class="w-4/12 ml-4">
         <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}}>Submit</Button>
+        <p>Changeset:
+        <pre>{{this.changesetJson}}</pre>
+        </p>
+        <p>Errors:
+        <pre>{{ this.errorsJson}}</pre>
+        </p>
       </div>
     </div>
   </ChangesetForm>
