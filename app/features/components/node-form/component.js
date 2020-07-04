@@ -18,6 +18,12 @@ export default class extends Component {
     this.snapshot = this.changeset.snapshot();
   }
 
+  get isWireless() {
+    return (
+      'BRIDGE-AP' === this.changeset.type || 'BRIDGE-BR' === this.changeset.type
+    );
+  }
+
   get disableSubmit() {
     return this.changeset.isInvalid || this.changeset.isPristine;
   }

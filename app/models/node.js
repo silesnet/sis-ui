@@ -13,7 +13,6 @@ export default class NodeModel extends Model {
   @attr monitoring;
   @attr path;
   @attr ping;
-  @attr isWireless;
   @attr polarization;
   @attr width;
   @attr norm;

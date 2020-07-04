@@ -42,8 +42,7 @@
           @containerClass="mt-4 mb-4" as |monitoring|>
           {{monitoring}}
         </Form.Select>
-        <Form.Checkbox @fieldName="isWireless" @label="Wireless" />
-        {{#if this.changeset.isWireless }}
+        {{#if this.isWireless }}
           <Form.Select @fieldName="polarization" @placeholder="Polarization" @options={{this.polarizations}}
             @containerClass="mt-4 mb-4" as |polarization|>
             {{polarization}}
