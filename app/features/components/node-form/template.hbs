@@ -43,7 +43,37 @@
           {{monitoring}}
         </Form.Select>
         <Form.Checkbox @fieldName="isWireless" @label="Wireless" />
-        <Form.Checkbox @fieldName="active" @label="Active" />
+        {{#if this.changeset.isWireless }}
+          <Form.Select @fieldName="polarization" @placeholder="Polarization" @options={{this.polarizations}}
+            @containerClass="mt-4 mb-4" as |polarization|>
+            {{polarization}}
+          </Form.Select>
+          <Form.Select @fieldName="width" @placeholder="Channel width" @options={{this.channelWidths}}
+            @containerClass="mt-4 mb-4" as |width|>
+            {{width}}
+          </Form.Select>
+          <Form.Select @fieldName="norm" @placeholder="Norm" @options={{this.norms}} @containerClass="mt-4 mb-4" as
+            |norm|>
+            {{norm}}
+          </Form.Select>
+          <Form.Checkbox @fieldName="tdma" @label="TDMA" class="mb-4" />
+          <Form.Checkbox @fieldName="aggregation" @label="Aggregation" class="mb-4" />
+          <Form.Input @fieldName="ssid" placeholder="SSID" class="mb-4" />
+          <Form.Select @fieldName="frequency" @placeholder="Frequency" @options={{this.frequencies}}
+            @searchEnabled={{true}} @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}}
+            @containerClass="mb-4" as |frequency|>
+            {{frequency}}
+          </Form.Select>
+          <Form.Input @fieldName="power" placeholder="Power" class="mb-4" />
+          <Form.Input @fieldName="antenna" placeholder="Antenna" class="mb-4" />
+          <Form.Checkbox @fieldName="wds" @label="WDS" class="mb-4" />
+          <Form.Select @fieldName="authorization" @placeholder="Authorization" @options={{this.authorizations}}
+            @containerClass="mt-4 mb-4" as |authorization|>
+            {{authorization}}
+          </Form.Select>
+          <Form.Input @fieldName="azimuth" placeholder="Azimuth" class="mb-4" />
+          <Form.Checkbox @fieldName="active" @label="Active" />
+        {{/if}}
       </div>
       <div class="w-4/12 ml-4">
         <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}}>Submit</Button>

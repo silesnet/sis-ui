@@ -101,6 +101,85 @@ export default class extends Component {
     return ['NONE', 'PING', 'PING-SMS'];
   }
 
+  // coded
+  get polarizations() {
+    return ['HORIZONTAL', 'VERTICAL', 'DUAL'];
+  }
+
+  get channelWidths() {
+    return [
+      '5 MHz',
+      '10 MHz',
+      '14 MHz',
+      '20 MHz',
+      '28 MHz',
+      '30 MHz',
+      '40 MHz',
+      '500 MHz',
+      '2x20 MHz',
+    ];
+  }
+
+  get norms() {
+    return [
+      '802.11a',
+      '802.11ac',
+      '802.11a/n',
+      '802.11b',
+      '802.11b/g',
+      '802.11g',
+      '802.11n',
+      'B/G',
+      '10GHz',
+      '24GHz',
+      '60GHz',
+    ];
+  }
+
+  get frequencies() {
+    return [
+      '2402',
+      '2422',
+      '2429',
+      '2439',
+      '2452',
+      '2462',
+      '2472',
+      '4920',
+      '5155',
+      '5200',
+      '5280',
+      '5340',
+      '5430',
+      '5475',
+      '5500',
+      '5520',
+      '5540',
+      '5565',
+      '5625',
+      '5635',
+      '5655',
+      '5665',
+      '5685',
+      '5695',
+      '5705',
+      '5715',
+      '5725',
+      '5880',
+      '10350',
+      '10406',
+      '10518',
+      '10574',
+      '24010',
+      '24040',
+      '24100',
+    ];
+  }
+
+  get authorizations() {
+    return ['NONE', 'BOTH', 'MAC', 'RADIUS'];
+  }
+
   @action
   selectNotFoundValue(select, event) {
     if (event.key === 'Enter') {

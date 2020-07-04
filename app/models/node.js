@@ -24,6 +24,7 @@ export default class NodeModel extends Model {
   @attr power;
   @attr antenna;
   @attr wds;
+  // db has it as 'auth'
   @attr authorization;
   @attr azimuth;
   @attr active;
