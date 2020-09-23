@@ -5,3 +5,16 @@
 
 @import 'tailwindcss/utilities';
 @import 'utilities.css';
+
+.form-tooltip {
+  @apply relative;
+}
+
+.form-tooltip .tooltip-text {
+  @apply absolute top-0 right-0 z-50 invisible inline-block pt-3 pr-4 text-sm text-gray-400;
+  /* @apply invisible; */
+}
+
+.form-tooltip:hover .tooltip-text {
+  @apply visible;
+}
