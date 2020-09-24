@@ -74,7 +74,7 @@ export default class NetworkController extends Controller {
     };
     const query = Object.keys(params)
       .reduce((acc, key) => {
-        return !!params[key] ? acc + ` ${key}.${params[key]}` : acc;
+        return params[key] ? acc + ` ${key}.${params[key]}` : acc;
       }, '')
       .trim();
     if (query) {

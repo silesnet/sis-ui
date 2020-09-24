@@ -10,6 +10,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/ui'),
+    // eslint-disable-next-line
     require('@frontile/forms/tailwind'),
     require('@frontile/buttons/tailwind'),
     require('@frontile/overlays/tailwind'),

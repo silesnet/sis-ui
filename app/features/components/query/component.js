@@ -15,7 +15,7 @@ export default class extends Component {
 
   constructor() {
     super(...arguments);
-    this.queryService.events.on('update', (current, late) => {
+    this.queryService.events.on('update', (current) => {
       this.value = current;
     });
   }

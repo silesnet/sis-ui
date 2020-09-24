@@ -14,9 +14,7 @@ export default class NetworkNodeRoute extends Route {
 
   @action
   update(changeset) {
-    console.log('Submit...');
     if (changeset.isDirty && changeset.isValid) {
-      console.log('saving changes', changeset.changes);
       // changeset.save().then(
       // () => {},
       // this.transitionTo('network', { queryParams: {} }).then(
