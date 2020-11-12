@@ -31,6 +31,10 @@ export default function() {
     ),
   );
 
+  this.get('/networks/nodes/options', ({ nodeOptions }) =>
+    nodeOptions.find('nodes.options'),
+  );
+
   this.post('/auth/token', (schema, { requestBody }) => {
     const sessionId = JSON.parse(requestBody).sessionId;
     if (sessionId) {

@@ -15,7 +15,8 @@
           <span class="tooltip-text">Název</span>
           <Form.Input @fieldName="name" placeholder="Název" />
         </div>
-        <Form.Select @fieldName="type" @placeholder="Typ" @options={{this.types}} @containerClass="mt-4" as |type|>
+        <Form.Select @fieldName="type" @placeholder="Typ" @options={{this.options.types}} @containerClass="mt-4" as
+          |type|>
           {{type}}
         </Form.Select>
         <div class="flex flex-row -ml-8">
@@ -28,8 +29,8 @@
           </div>
           <div class="flex-auto form-tooltip">
             <span class="mt-4 mr-5 tooltip-text">Master</span>
-            <Form.Select @fieldName="master" @placeholder="Master" @options={{this.masters}} @searchEnabled={{true}}
-              @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |master|>
+            <Form.Select @fieldName="master" @placeholder="Master" @options={{this.options.masters}}
+              @searchEnabled={{true}} @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |master|>
               {{master}}
             </Form.Select>
           </div>
@@ -43,8 +44,8 @@
             </svg>
           </div>
           <div class="flex-auto">
-            <Form.Select @fieldName="linkTo" @placeholder="Link to" @options={{this.links}} @searchEnabled={{true}}
-              @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |linkTo|>
+            <Form.Select @fieldName="linkTo" @placeholder="Link to" @options={{this.options.links}}
+              @searchEnabled={{true}} @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |linkTo|>
               {{linkTo}}
             </Form.Select>
           </div>
@@ -59,24 +60,24 @@
             </svg>
           </div>
           <div class="flex-auto">
-            <Form.Select @fieldName="area" @placeholder="Area" @options={{this.areas}} @searchEnabled={{true}}
+            <Form.Select @fieldName="area" @placeholder="Area" @options={{this.options.areas}} @searchEnabled={{true}}
               @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |area|>
               {{area}}
             </Form.Select>
           </div>
         </div>
-        <Form.Select @fieldName="vendor" @placeholder="Vendor" @options={{this.vendors}} @searchEnabled={{true}}
+        <Form.Select @fieldName="vendor" @placeholder="Vendor" @options={{this.options.vendors}} @searchEnabled={{true}}
           @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}} @containerClass="mt-4" as
           |vendor|>
           {{vendor}}
         </Form.Select>
-        <Form.Select @fieldName="model" @placeholder="Model" @options={{this.models}} @searchEnabled={{true}}
+        <Form.Select @fieldName="model" @placeholder="Model" @options={{this.options.models}} @searchEnabled={{true}}
           @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}} @containerClass="mt-4" as
           |model|>
           {{model}}
         </Form.Select>
         <Form.Input @fieldName="info" placeholder="Poznámka" class="mt-4" />
-        <Form.Select @fieldName="monitoring" @placeholder="Monitoring" @options={{this.monitorings}}
+        <Form.Select @fieldName="monitoring" @placeholder="Monitoring" @options={{this.options.monitoringTypes}}
           @containerClass="mt-4" as |monitoring|>
           {{monitoring}}
         </Form.Select>
@@ -90,24 +91,24 @@
               </svg>
             </div>
             <div class="flex-auto">
-              <Form.Select @fieldName="polarization" @placeholder="Polarization" @options={{this.polarizations}}
+              <Form.Select @fieldName="polarization" @placeholder="Polarization" @options={{this.options.polarizations}}
                 @containerClass="mt-4" as |polarization|>
                 {{polarization}}
               </Form.Select>
             </div>
           </div>
-          <Form.Select @fieldName="width" @placeholder="Channel width" @options={{this.channelWidths}}
+          <Form.Select @fieldName="width" @placeholder="Channel width" @options={{this.options.channelWidths}}
             @containerClass="mt-4 mb-4" as |width|>
             {{width}}
           </Form.Select>
-          <Form.Select @fieldName="norm" @placeholder="Norm" @options={{this.norms}} @containerClass="mt-4 mb-4" as
-            |norm|>
+          <Form.Select @fieldName="norm" @placeholder="Norm" @options={{this.options.norms}} @containerClass="mt-4 mb-4"
+            as |norm|>
             {{norm}}
           </Form.Select>
           <Form.Checkbox @fieldName="tdma" @label="TDMA" class="mb-4" />
           <Form.Checkbox @fieldName="aggregation" @label="Aggregation" class="mb-4" />
           <Form.Input @fieldName="ssid" placeholder="SSID" class="mb-4" />
-          <Form.Select @fieldName="frequency" @placeholder="Frequency" @options={{this.frequencies}}
+          <Form.Select @fieldName="frequency" @placeholder="Frequency" @options={{this.options.frequencies}}
             @searchEnabled={{true}} @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}}
             @containerClass="mb-4" as |frequency|>
             {{frequency}}
@@ -115,7 +116,7 @@
           <Form.Input @fieldName="power" placeholder="Power" class="mb-4" />
           <Form.Input @fieldName="antenna" placeholder="Antenna" class="mb-4" />
           <Form.Checkbox @fieldName="wds" @label="WDS" />
-          <Form.Select @fieldName="authorization" @placeholder="Authorization" @options={{this.authorizations}}
+          <Form.Select @fieldName="authorization" @placeholder="Authorization" @options={{this.options.authorizations}}
             @containerClass="mt-4 mb-4" as |authorization|>
             {{authorization}}
           </Form.Select>
