@@ -6,9 +6,10 @@ export default class extends Route.extend(ApplicationRouteMixin) {
   @service session;
   @service currentUser;
   @service cookies;
+  @service options;
 
   beforeModel() {
-    return this._logIn().then(this._loadCurrentUser());
+    return this._logIn().then(this.currentUser.load());
   }
 
   redirect(model, transition) {
@@ -19,14 +20,9 @@ export default class extends Route.extend(ApplicationRouteMixin) {
 
   async sessionAuthenticated() {
     const _super = this._super; // eslint-disable-line
-    await this._loadCurrentUser();
+    await this.currentUser.load();
+    await this.options.load();
     _super.call(this, ...arguments);
-  }
-
-  _loadCurrentUser() {
-    return this.currentUser.load().catch(() => {
-      this.session.invalidate();
-    });
   }
 
   _logIn() {
