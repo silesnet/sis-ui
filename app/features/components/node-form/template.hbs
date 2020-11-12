@@ -38,7 +38,8 @@
           <div class="flex-auto form-tooltip">
             <span class="mt-4 mr-5 tooltip-text">Master</span>
             <Form.Select @fieldName="master" @placeholder="Master" @options={{this.options.masters}}
-              @searchEnabled={{true}} @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |master|>
+              @searchEnabled={{true}} @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}}
+              @containerClass="mt-4" as |master|>
               {{master}}
             </Form.Select>
           </div>
@@ -55,7 +56,8 @@
           <div class="flex-auto form-tooltip">
             <span class="mt-4 mr-5 tooltip-text">Link to</span>
             <Form.Select @fieldName="linkTo" @placeholder="Link to" @options={{this.options.links}}
-              @searchEnabled={{true}} @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |linkTo|>
+              @searchEnabled={{true}} @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}}
+              @containerClass="mt-4" as |linkTo|>
               {{linkTo}}
             </Form.Select>
           </div>
@@ -73,7 +75,8 @@
           <div class="flex-auto form-tooltip">
             <span class="mt-4 mr-5 tooltip-text">Area</span>
             <Form.Select @fieldName="area" @placeholder="Area" @options={{this.options.areas}} @searchEnabled={{true}}
-              @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |area|>
+              @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}} @containerClass="mt-4" as
+              |area|>
               {{area}}
             </Form.Select>
           </div>
@@ -131,6 +134,7 @@
           <div class="form-tooltip">
             <span class="mr-5 tooltip-text">Monitoring</span>
             <Form.Select @fieldName="width" @placeholder="Channel width" @options={{this.options.channelWidths}}
+              @searchEnabled={{true}} @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}}
               @containerClass="mt-4 mb-4" as |width|>
               {{width}}
             </Form.Select>
@@ -138,8 +142,9 @@
           <!-- node norm -->
           <div class="form-tooltip">
             <span class="mr-5 tooltip-text">Norm</span>
-            <Form.Select @fieldName="norm" @placeholder="Norm" @options={{this.options.norms}}
-              @containerClass="mt-4 mb-4" as |norm|>
+            <Form.Select @fieldName="norm" @placeholder="Norm" @options={{this.options.norms}} @searchEnabled={{true}}
+              @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}} @containerClass="mt-4 mb-4"
+              as |norm|>
               {{norm}}
             </Form.Select>
           </div>
