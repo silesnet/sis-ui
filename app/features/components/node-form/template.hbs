@@ -2,6 +2,7 @@
   <ChangesetForm @changeset={{this.changeset}} as |Form changeset|>
     <div class="flex mb-4">
       <div class="flex justify-end w-1/12 h-auto mr-6">
+        <!-- close button -->
         <LinkTo @route="network" class="h-6">
           <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
             <path
@@ -10,15 +11,22 @@
           </svg></LinkTo>
       </div>
       <div class="w-6/12 px-4">
+        <!-- node path -->
         <p class="mb-4 text-gray-500">{{changeset.path}}</p>
+        <!-- node name -->
         <div class="form-tooltip">
           <span class="tooltip-text">Název</span>
           <Form.Input @fieldName="name" placeholder="Název" />
         </div>
-        <Form.Select @fieldName="type" @placeholder="Typ" @options={{this.options.types}} @containerClass="mt-4" as
-          |type|>
-          {{type}}
-        </Form.Select>
+        <!-- node type -->
+        <div class="form-tooltip">
+          <span class="mr-5 tooltip-text">Typ</span>
+          <Form.Select @fieldName="type" @placeholder="Typ" @options={{this.options.types}} @containerClass="mt-4" as
+            |type|>
+            {{type}}
+          </Form.Select>
+        </div>
+        <!-- node master -->
         <div class="flex flex-row -ml-8">
           <div class="self-center flex-none mt-4 mr-2">
             <svg class="w-6 h-6 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
@@ -35,6 +43,7 @@
             </Form.Select>
           </div>
         </div>
+        <!-- node linkTo -->
         <div class="flex flex-row -ml-8">
           <div class="self-center flex-none mt-4 mr-2">
             <svg class="w-6 h-6 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
@@ -43,13 +52,15 @@
                 clip-rule="evenodd" />
             </svg>
           </div>
-          <div class="flex-auto">
+          <div class="flex-auto form-tooltip">
+            <span class="mt-4 mr-5 tooltip-text">Link to</span>
             <Form.Select @fieldName="linkTo" @placeholder="Link to" @options={{this.options.links}}
               @searchEnabled={{true}} @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |linkTo|>
               {{linkTo}}
             </Form.Select>
           </div>
         </div>
+        <!-- node area -->
         <div class="flex flex-row -ml-8">
           <div class="self-center flex-none mt-4 mr-2">
             <svg class="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -59,29 +70,47 @@
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
           </div>
-          <div class="flex-auto">
+          <div class="flex-auto form-tooltip">
+            <span class="mt-4 mr-5 tooltip-text">Area</span>
             <Form.Select @fieldName="area" @placeholder="Area" @options={{this.options.areas}} @searchEnabled={{true}}
               @noMatchesMessage="Nenalezeno..." @containerClass="mt-4" as |area|>
               {{area}}
             </Form.Select>
           </div>
         </div>
-        <Form.Select @fieldName="vendor" @placeholder="Vendor" @options={{this.options.vendors}} @searchEnabled={{true}}
-          @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}} @containerClass="mt-4" as
-          |vendor|>
-          {{vendor}}
-        </Form.Select>
-        <Form.Select @fieldName="model" @placeholder="Model" @options={{this.options.models}} @searchEnabled={{true}}
-          @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}} @containerClass="mt-4" as
-          |model|>
-          {{model}}
-        </Form.Select>
-        <Form.Input @fieldName="info" placeholder="Poznámka" class="mt-4" />
-        <Form.Select @fieldName="monitoring" @placeholder="Monitoring" @options={{this.options.monitoringTypes}}
-          @containerClass="mt-4" as |monitoring|>
-          {{monitoring}}
-        </Form.Select>
+        <!-- node vendor -->
+        <div class="form-tooltip">
+          <span class="mr-5 tooltip-text">Vendor</span>
+          <Form.Select @fieldName="vendor" @placeholder="Vendor" @options={{this.options.vendors}}
+            @searchEnabled={{true}} @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}}
+            @containerClass="mt-4" as |vendor|>
+            {{vendor}}
+          </Form.Select>
+        </div>
+        <!-- node model -->
+        <div class="form-tooltip">
+          <span class="mr-5 tooltip-text">Model</span>
+          <Form.Select @fieldName="model" @placeholder="Model" @options={{this.options.models}} @searchEnabled={{true}}
+            @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}} @containerClass="mt-4" as
+            |model|>
+            {{model}}
+          </Form.Select>
+        </div>
+        <!-- node info -->
+        <div class="form-tooltip">
+          <span class="mt-4 tooltip-text">Poznámka</span>
+          <Form.Input @fieldName="info" placeholder="Poznámka" class="mt-4" />
+        </div>
+        <!-- node monitoring -->
+        <div class="form-tooltip">
+          <span class="mr-5 tooltip-text">Monitoring</span>
+          <Form.Select @fieldName="monitoring" @placeholder="Monitoring" @options={{this.options.monitoringTypes}}
+            @containerClass="mt-4" as |monitoring|>
+            {{monitoring}}
+          </Form.Select>
+        </div>
         {{#if this.isWireless }}
+          <!-- node polarization -->
           <div class="flex flex-row -ml-8">
             <div class="self-center flex-none mt-4 mr-2">
               <svg class="w-6 h-6 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
@@ -90,41 +119,79 @@
                   clip-rule="evenodd" />
               </svg>
             </div>
-            <div class="flex-auto">
+            <div class="flex-auto form-tooltip">
+              <span class="mt-4 mr-5 tooltip-text">Polarization</span>
               <Form.Select @fieldName="polarization" @placeholder="Polarization" @options={{this.options.polarizations}}
                 @containerClass="mt-4" as |polarization|>
                 {{polarization}}
               </Form.Select>
             </div>
           </div>
-          <Form.Select @fieldName="width" @placeholder="Channel width" @options={{this.options.channelWidths}}
-            @containerClass="mt-4 mb-4" as |width|>
-            {{width}}
-          </Form.Select>
-          <Form.Select @fieldName="norm" @placeholder="Norm" @options={{this.options.norms}} @containerClass="mt-4 mb-4"
-            as |norm|>
-            {{norm}}
-          </Form.Select>
+          <!-- node channel -->
+          <div class="form-tooltip">
+            <span class="mr-5 tooltip-text">Monitoring</span>
+            <Form.Select @fieldName="width" @placeholder="Channel width" @options={{this.options.channelWidths}}
+              @containerClass="mt-4 mb-4" as |width|>
+              {{width}}
+            </Form.Select>
+          </div>
+          <!-- node norm -->
+          <div class="form-tooltip">
+            <span class="mr-5 tooltip-text">Norm</span>
+            <Form.Select @fieldName="norm" @placeholder="Norm" @options={{this.options.norms}}
+              @containerClass="mt-4 mb-4" as |norm|>
+              {{norm}}
+            </Form.Select>
+          </div>
+          <!-- node TDMA -->
           <Form.Checkbox @fieldName="tdma" @label="TDMA" class="mb-4" />
+          <!-- node aggregation -->
           <Form.Checkbox @fieldName="aggregation" @label="Aggregation" class="mb-4" />
-          <Form.Input @fieldName="ssid" placeholder="SSID" class="mb-4" />
-          <Form.Select @fieldName="frequency" @placeholder="Frequency" @options={{this.options.frequencies}}
-            @searchEnabled={{true}} @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}}
-            @containerClass="mb-4" as |frequency|>
-            {{frequency}}
-          </Form.Select>
-          <Form.Input @fieldName="power" placeholder="Power" class="mb-4" />
-          <Form.Input @fieldName="antenna" placeholder="Antenna" class="mb-4" />
+          <!-- node SSID -->
+          <div class="form-tooltip">
+            <span class="tooltip-text">SSID</span>
+            <Form.Input @fieldName="ssid" placeholder="SSID" class="mb-4" />
+          </div>
+          <!-- node frequency -->
+          <div class="form-tooltip">
+            <span class="mr-5 tooltip-text">Frequency</span>
+            <Form.Select @fieldName="frequency" @placeholder="Frequency" @options={{this.options.frequencies}}
+              @searchEnabled={{true}} @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}}
+              @containerClass="mb-4" as |frequency|>
+              {{frequency}}
+            </Form.Select>
+          </div>
+          <!-- node power -->
+          <div class="form-tooltip">
+            <span class="tooltip-text">Power</span>
+            <Form.Input @fieldName="power" placeholder="Power" class="mb-4" />
+          </div>
+          <!-- node antenna -->
+          <div class="form-tooltip">
+            <span class="tooltip-text">Antenna</span>
+            <Form.Input @fieldName="antenna" placeholder="Antenna" class="mb-4" />
+          </div>
+          <!-- node WDS -->
           <Form.Checkbox @fieldName="wds" @label="WDS" />
-          <Form.Select @fieldName="authorization" @placeholder="Authorization" @options={{this.options.authorizations}}
-            @containerClass="mt-4 mb-4" as |authorization|>
-            {{authorization}}
-          </Form.Select>
-          <Form.Input @fieldName="azimuth" placeholder="Azimuth" class="mb-4" />
+          <!-- node authorization -->
+          <div class="form-tooltip">
+            <span class="mr-5 tooltip-text">Authorization</span>
+            <Form.Select @fieldName="authorization" @placeholder="Authorization"
+              @options={{this.options.authorizations}} @containerClass="mt-4 mb-4" as |authorization|>
+              {{authorization}}
+            </Form.Select>
+          </div>
+          <!-- node azimuth -->
+          <div class="form-tooltip">
+            <span class="tooltip-text">Azimuth</span>
+            <Form.Input @fieldName="azimuth" placeholder="Azimuth" class="mb-4" />
+          </div>
+          <!-- node active -->
           <Form.Checkbox @fieldName="active" @label="Active" />
         {{/if}}
       </div>
       <div class="w-4/12 ml-4">
+        <!-- submit -->
         <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}}>Submit</Button>
         <p>Changeset:
         <pre>{{this.changesetJson}}</pre>
