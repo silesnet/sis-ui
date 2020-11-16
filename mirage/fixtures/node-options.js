@@ -1,6 +1,7 @@
 export default [
   {
     id: 'nodes.options',
+    countries: ['CZ', 'PL'],
     models: [
       'A5120-24G',
       'AirFiber AF24',

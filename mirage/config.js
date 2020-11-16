@@ -6,11 +6,8 @@ export default function() {
   this.namespace = '';
   this.timing = 0;
 
-  this.patch('/networks/nodes/:id', ({ nodes }, { params, requestBody }) => {
-    return nodes
-      .find(+params.id)
-      .update(JSON.parse(requestBody).data.attributes);
-  });
+  this.patch('/networks/nodes/:id');
+  this.post('/networks/nodes');
 
   this.get('/networks/nodes/:name', ({ nodes }, { params }) => {
     return nodes

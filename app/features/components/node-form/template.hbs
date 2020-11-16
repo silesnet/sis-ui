@@ -13,6 +13,14 @@
       <div class="w-6/12 px-4">
         <!-- node path -->
         <p class="mb-4 text-gray-500">{{changeset.path}}</p>
+        <!-- node country -->
+        <div class="mb-4 form-tooltip">
+          <span class="mr-5 tooltip-text">Country</span>
+          <Form.Select @fieldName="country" @placeholder="Country" @options={{this.options.countries}}
+            @containerClass="mt-4" as |country|>
+            {{country}}
+          </Form.Select>
+        </div>
         <!-- node name -->
         <div class="form-tooltip">
           <span class="tooltip-text">Název</span>

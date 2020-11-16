@@ -13,15 +13,11 @@ export default class NetworkNodeRoute extends Route {
   }
 
   @action
-  update(changeset) {
+  save(changeset) {
     if (changeset.isDirty && changeset.isValid) {
-      // changeset.save().then(
-      // () => {},
-      // this.transitionTo('network', { queryParams: {} }).then(
-      //   () => console.log('tranistioned'),
-      //   (err) => console.log('error on transition', err),
-      // ),
-      // );
+      changeset
+        .save()
+        .then(() => this.transitionTo('network', { queryParams: {} }));
     }
   }
 }
