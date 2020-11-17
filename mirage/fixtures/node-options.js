@@ -95,7 +95,7 @@ export default [
       '40 MHz',
       '500 MHz',
     ],
-    authorizations: ['NONE', 'BOTH', 'MAC', 'RADIUS'],
+    authentications: ['NONE', 'BOTH', 'MAC', 'RADIUS'],
     masters: ['tesin', 'tovarni', 'cieszyn'],
     links: [
       'root',

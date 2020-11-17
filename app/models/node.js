@@ -23,7 +23,7 @@ export default class NodeModel extends Model {
   @attr('string') power;
   @attr('string') antenna;
   @attr('boolean') wds;
-  @attr('string') authorization;
+  @attr('string') authentication;
   @attr('string') azimuth;
   @attr('boolean') active;
 }

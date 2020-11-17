@@ -186,12 +186,12 @@
           </div>
           <!-- node WDS -->
           <Form.Checkbox @fieldName="wds" @label="WDS" />
-          <!-- node authorization -->
+          <!-- node authentication -->
           <div class="form-tooltip">
-            <span class="mr-5 tooltip-text">Authorization</span>
-            <Form.Select @fieldName="authorization" @placeholder="Authorization"
-              @options={{this.options.authorizations}} @containerClass="mt-4 mb-4" as |authorization|>
-              {{authorization}}
+            <span class="mr-5 tooltip-text">Authentication</span>
+            <Form.Select @fieldName="authentication" @placeholder="Authentication"
+              @options={{this.options.authentications}} @containerClass="mt-4 mb-4" as |authentication|>
+              {{authentication}}
             </Form.Select>
           </div>
           <!-- node azimuth -->
