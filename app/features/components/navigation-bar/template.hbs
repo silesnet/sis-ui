@@ -9,11 +9,7 @@
     <div id="navigation-bar-icons" class="mx-3">
     </div>
     <Query class="flex-grow" />
-    <div class="ml-4 text-gray-500">
-      {{@login}} |
-      <span class="text-sm">{{@division}}</span>
-    </div>
-    <NavigationBar::Menu class="ml-4" />
+    <NavigationBar::Menu class="ml-4" @login="{{@login}}" @division="{{@division}}" />
   </div>
   {{!-- <div class="border-b border-gray-200">
     <div class="sm:hidden">

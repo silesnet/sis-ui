@@ -14,15 +14,11 @@
   {{#if this.isOpen}}
     <button type="button" class="fixed inset-0 w-full h-full cursor-default" tabindex="-1"
       {{ on 'click' (fn (mut this.isOpen) false) }}></button>
-    <div class="absolute right-0 w-32 pt-1 pb-2 mt-1 mr-1 text-sm text-gray-700 bg-white shadow">
-      <a href="#" class="inline-block w-full px-4 mt-1 cursor-default hover:bg-gray-200"
+    <div class="absolute right-0 w-48 pt-1 pb-2 mt-1 mr-1 text-sm text-gray-700 bg-white shadow">
+      <span class="inline-block w-full px-4 mt-1 cursor-default"
         {{ on 'click' (fn (mut this.isOpen) false) }}>
-        Domů
-      </a>
-      <a href="#" class="inline-block w-full px-4 mt-1 cursor-default hover:bg-gray-200"
-        {{ on 'click' (fn (mut this.isOpen) false) }}>
-        Odhlásit se
-      </a>
+        {{@login}} | {{@division}}
+      </span>
     </div>
   {{/if}}
 </div>
