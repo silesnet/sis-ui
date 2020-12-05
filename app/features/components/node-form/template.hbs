@@ -206,12 +206,6 @@
       <div class="w-4/12 ml-4">
         <!-- submit -->
         <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}}>Submit</Button>
-        <p>Changeset:
-        <pre>{{this.changesetJson}}</pre>
-        </p>
-        <p>Errors:
-        <pre>{{ this.errorsJson}}</pre>
-        </p>
       </div>
     </div>
   </ChangesetForm>
