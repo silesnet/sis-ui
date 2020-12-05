@@ -73,5 +73,30 @@
     {{else}}
       <p>Nebyl nalezen žáden záznam.</p>
     {{/if}}
+  {{else}}
+    <pre class="pl-6 text-sm text-gray-400">
+      Nápověda k vyhledávání
+
+      Výchozí vyhledávání je podle názvu síťového prvku.
+      Název prvku je třeba zadat přesně, np. "polni-25" nebo jde použít hvědičku, np. "polni*".
+
+      Je možné vyhledávání podle jiných sloupců: area, master, link to, vendor nebo country.
+      Vyhledávání podle jiného sloupce se zapína písmenkem s tečkou.
+      "a.bystrice" najde prvky s area=bystrice, "a.bys*" najde prvky s area začínající na "bys".
+
+      Dotazy lze kombinovat, np. "a.bys* v.ubi*" najde prvnky s area začínající na "bys" a zároveň s vendor
+      začínající na "ubi*".
+
+      Podporovaná sloupce jsou:
+      n - název (default není třeba zadávat)
+      m - master
+      a - area
+      l - link to
+      v - vendor
+      c - country
+    </pre>
+    <p>
+
+      </p>
   {{/if}}
 </div>
