@@ -68,6 +68,9 @@
               </tbody>
             </table>
           </div>
+          <p class="pt-2 pl-2 text-right text-gray-400">Nalezeno: {{ this.items.length }}
+            {{if (gt this.items.length 4) "záznamů" (if (eq this.items.length 1) "záznam" "záznamy") }}.
+          </p>
         </div>
       </div>
     {{else}}
