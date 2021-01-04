@@ -8,7 +8,8 @@
             <path
               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
               clip-rule="evenodd" fill-rule="evenodd"></path>
-          </svg></LinkTo>
+          </svg>
+        </LinkTo>
       </div>
       <div class="w-6/12 px-4">
         <!-- node path -->
@@ -138,9 +139,9 @@
               </Form.Select>
             </div>
           </div>
-          <!-- node channel -->
+          <!-- node channel width -->
           <div class="form-tooltip">
-            <span class="mr-5 tooltip-text">Monitoring</span>
+            <span class="mr-5 tooltip-text">Channel width</span>
             <Form.Select @fieldName="width" @placeholder="Channel width" @options={{this.options.channelWidths}}
               @searchEnabled={{true}} @noMatchesMessage="Přidat... (Enter)" @onKeydown={{this.selectNotFoundValue}}
               @containerClass="mt-4 mb-4" as |width|>
