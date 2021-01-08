@@ -20,4 +20,12 @@ export default class NetworkNodeRoute extends Route {
         .then(() => this.transitionTo('network', { queryParams: {} }));
     }
   }
+
+  @action
+  delete(changeset) {
+    changeset
+      .get('data')
+      .destroyRecord()
+      .then(() => this.transitionTo('network', { queryParams: {} }));
+  }
 }

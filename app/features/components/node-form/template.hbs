@@ -207,6 +207,7 @@
       <div class="w-4/12 ml-4">
         <!-- submit -->
         <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}}>Uložit</Button>
+        <Button @intent="danger" @appearance="outlined" {{on 'click' (fn this.delete)}}>Smazat</Button>
       </div>
     </div>
   </ChangesetForm>

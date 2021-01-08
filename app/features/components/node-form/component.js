@@ -56,6 +56,12 @@ export default class extends Component {
   }
 
   @action
+  delete() {
+    this.changeset.rollback();
+    this.args.onDelete(this.changeset);
+  }
+
+  @action
   keyPress(event) {
     switch (event.key) {
       case 'Escape':

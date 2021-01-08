@@ -6,8 +6,9 @@ export default function() {
   this.namespace = '';
   this.timing = 0;
 
-  this.patch('/networks/nodes/:id');
   this.post('/networks/nodes');
+  this.patch('/networks/nodes/:id');
+  this.delete('/networks/nodes/:id');
 
   this.get('/networks/nodes/:name', ({ nodes }, { params }) => {
     return nodes
