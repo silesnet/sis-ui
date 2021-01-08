@@ -10,6 +10,7 @@ export default [
     model: 'TL-SG3210 1.0',
     linkTo: '',
     country: 'CZ',
+    monitoring: 'NONE',
   },
   {
     id: 1002,
@@ -22,6 +23,7 @@ export default [
     model: 'TL-WR840N',
     linkTo: 'root',
     country: 'CZ',
+    monitoring: 'PING',
   },
   {
     id: 1003,
@@ -34,6 +36,7 @@ export default [
     model: 'B24',
     linkTo: 'tesin',
     country: 'CZ',
+    monitoring: 'PING',
     frequency: 2300,
   },
   {
@@ -47,6 +50,7 @@ export default [
     model: 'PowerBeam M5 400 - 25 dBi',
     linkTo: 'tesin',
     country: 'CZ',
+    monitoring: 'PING',
     frequency: 7305,
   },
   {
@@ -60,6 +64,7 @@ export default [
     model: 'NanoStation loco M5 Built in - 13 dBi',
     linkTo: 'polni',
     country: 'CZ',
+    monitoring: 'PING',
     frequency: 2200,
   },
   {
@@ -73,6 +78,7 @@ export default [
     model: 'PowerBeam M5 400 - 25 dBi',
     linkTo: 'polni',
     country: 'CZ',
+    monitoring: 'PING',
     frequency: 7400,
   },
   {
@@ -86,6 +92,7 @@ export default [
     model: 'NanoStation loco M5 Built in - 13 dBi',
     linkTo: 'slezska',
     country: 'CZ',
+    monitoring: 'PING',
     frequency: 2400,
   },
   {
@@ -99,6 +106,7 @@ export default [
     model: 'NanoStation loco M5 Built in - 13 dBi',
     linkTo: 'root',
     country: 'CZ',
+    monitoring: 'PING',
   },
   {
     id: 1009,
@@ -111,6 +119,7 @@ export default [
     model: 'PowerBeam M2 400 - 18 dBi',
     linkTo: 'frydek',
     country: 'CZ',
+    monitoring: 'PING',
     frequency: 3300,
   },
   {
@@ -124,6 +133,7 @@ export default [
     model: 'NanoBeam M5 Built in - 16 dBi',
     linkTo: 'tovarni',
     country: 'CZ',
+    monitoring: 'PING',
     frequency: 7200,
   },
   {
@@ -137,6 +147,7 @@ export default [
     model: 'TL-SG3210 1.0',
     linkTo: '',
     country: 'PL',
+    monitoring: 'PING',
   },
   {
     id: 2002,
@@ -149,6 +160,7 @@ export default [
     model: 'TL-WR840N',
     linkTo: 'root2',
     country: 'PL',
+    monitoring: 'PING',
   },
   {
     id: 2003,
@@ -161,6 +173,7 @@ export default [
     model: 'B24',
     linkTo: 'cieszyn',
     country: 'PL',
+    monitoring: 'PING',
     frequency: 7200,
   },
   {
@@ -174,6 +187,7 @@ export default [
     model: 'NanoStation loco M5 Built in - 13 dBi',
     linkTo: 'krotka',
     country: 'PL',
+    monitoring: 'PING-SMS',
     frequency: 5400,
   },
 ];

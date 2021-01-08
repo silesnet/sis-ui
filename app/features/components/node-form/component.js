@@ -9,6 +9,7 @@ import { inject as service } from '@ember/service';
 export default class extends Component {
   @service('options') appOptions;
   @tracked changeset;
+  @tracked confirmingDeletion = false;
 
   constructor() {
     super(...arguments);
@@ -56,7 +57,18 @@ export default class extends Component {
   }
 
   @action
+  openDeleteConfirmation() {
+    this.confirmingDeletion = true;
+  }
+
+  @action
+  closeDeleteConfirmation() {
+    this.confirmingDeletion = false;
+  }
+
+  @action
   delete() {
+    this.closeDeleteConfirmation();
     this.changeset.rollback();
     this.args.onDelete(this.changeset);
   }

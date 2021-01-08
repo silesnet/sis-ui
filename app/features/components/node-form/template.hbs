@@ -207,8 +207,18 @@
       <div class="w-4/12 ml-4">
         <!-- submit -->
         <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}}>Uložit</Button>
-        <Button @intent="danger" @appearance="outlined" {{on 'click' (fn this.delete)}}>Smazat</Button>
+        <Button @intent="danger" @appearance="outlined" {{on 'click' (fn this.openDeleteConfirmation)}}>Smazat</Button>
       </div>
     </div>
   </ChangesetForm>
+  <Modal @isOpen={{this.confirmingDeletion}} @onClose={{this.closeDeleteConfirmation}} as |m|>
+    <m.Header>Potvrzení...</m.Header>
+    <m.Body>
+      Smazat síťový prvek '{{this.changeset.name}}'?
+    </m.Body>
+    <m.Footer>
+      <Button @appearance="minimal" {{on 'click' this.closeDeleteConfirmation}}>Zrušit</Button>
+      <Button @intent="danger" {{on 'click' this.delete}}>Smazat</Button>
+    </m.Footer>
+  </Modal>
 </div>
