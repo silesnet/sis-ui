@@ -19,7 +19,7 @@ export default class NodeModel extends Model {
   @attr('boolean') tdma;
   @attr('boolean') aggregation;
   @attr('string') ssid;
-  @attr('string') frequency;
+  @attr('number') frequency;
   @attr('string') power;
   @attr('string') antenna;
   @attr('boolean') wds;

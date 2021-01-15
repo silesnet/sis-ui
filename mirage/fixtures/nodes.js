@@ -37,6 +37,7 @@ export default [
     linkTo: 'tesin',
     country: 'CZ',
     monitoring: 'PING',
+    width: '10 MHz',
     frequency: 2300,
   },
   {
@@ -51,6 +52,7 @@ export default [
     linkTo: 'tesin',
     country: 'CZ',
     monitoring: 'PING',
+    width: '20 MHz',
     frequency: 7305,
   },
   {
@@ -65,6 +67,7 @@ export default [
     linkTo: 'polni',
     country: 'CZ',
     monitoring: 'PING',
+    width: '10 MHz',
     frequency: 2200,
   },
   {
@@ -79,6 +82,7 @@ export default [
     linkTo: 'polni',
     country: 'CZ',
     monitoring: 'PING',
+    width: '20 MHz',
     frequency: 7400,
   },
   {
@@ -93,6 +97,7 @@ export default [
     linkTo: 'slezska',
     country: 'CZ',
     monitoring: 'PING',
+    width: '10 MHz',
     frequency: 2400,
   },
   {
@@ -120,6 +125,7 @@ export default [
     linkTo: 'frydek',
     country: 'CZ',
     monitoring: 'PING',
+    width: '20 MHz',
     frequency: 3300,
   },
   {
@@ -134,6 +140,7 @@ export default [
     linkTo: 'tovarni',
     country: 'CZ',
     monitoring: 'PING',
+    width: '10 MHz',
     frequency: 7200,
   },
   {
@@ -174,6 +181,7 @@ export default [
     linkTo: 'cieszyn',
     country: 'PL',
     monitoring: 'PING',
+    width: '20 MHz',
     frequency: 7200,
   },
   {
@@ -188,6 +196,7 @@ export default [
     linkTo: 'krotka',
     country: 'PL',
     monitoring: 'PING-SMS',
+    width: '10 MHz',
     frequency: 5400,
   },
 ];
