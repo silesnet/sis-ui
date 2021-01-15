@@ -16,12 +16,17 @@ export default class NetworkController extends Controller {
   @tracked vendor;
   @tracked country;
 
+  @tracked sortKey = 'name';
+  @tracked sortAscending = true;
+
   get hasContent() {
     return !!this.model;
   }
 
   get items() {
-    return this.model;
+    return this.sortAscending
+      ? this.model.sortBy(this.sortKey)
+      : this.model.sortBy(this.sortKey).reverse();
   }
 
   constructor() {
@@ -63,6 +68,17 @@ export default class NetworkController extends Controller {
   findName(node) {
     this.search.findNodes(`n.${node}`);
   }
+
+  @action
+  toggleSortKey(sortKey) {
+    if (this.sortKey === sortKey) {
+      this.sortAscending = !this.sortAscending;
+    } else {
+      this.sortKey = sortKey;
+      this.sortAscending = true;
+    }
+  }
+
   performSearch() {
     const params = {
       n: this.name,

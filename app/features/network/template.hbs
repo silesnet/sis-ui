@@ -15,32 +15,32 @@
             <table class="min-w-full">
               <thead>
                 <tr>
-                  <th
-                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                  <th {{on 'click' (fn this.toggleSortKey 'country' )}}
+                    class="{{if (eq this.sortKey 'country') 'text-blue-500'}} px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50 cursor-pointer">
                     Country
                   </th>
-                  <th
-                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                  <th {{on 'click' (fn this.toggleSortKey 'name' )}}
+                    class="{{if (eq this.sortKey 'name') 'text-blue-500'}} px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50 cursor-pointer">
                     Name
                   </th>
-                  <th
-                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                  <th {{on 'click' (fn this.toggleSortKey 'vendor' )}}
+                    class="{{if (eq this.sortKey 'vendor') 'text-blue-500'}} px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50 cursor-pointer">
                     Vendor
                   </th>
-                  <th
-                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                  <th {{on 'click' (fn this.toggleSortKey 'model' )}}
+                    class="{{if (eq this.sortKey 'model') 'text-blue-500'}} px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50 cursor-pointer">
                     Model
                   </th>
-                  <th
-                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                  <th {{on 'click' (fn this.toggleSortKey 'linkTo' )}}
+                    class="{{if (eq this.sortKey 'linkTo') 'text-blue-500'}} px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50 cursor-pointer">
                     Link to
                   </th>
-                  <th
-                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                  <th {{on 'click' (fn this.toggleSortKey 'width' )}}
+                    class="{{if (eq this.sortKey 'width') 'text-blue-500'}} px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50 cursor-pointer">
                     Channel width
                   </th>
-                  <th
-                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                  <th {{on 'click' (fn this.toggleSortKey 'frequency' )}}
+                    class="{{if (eq this.sortKey 'frequency') 'text-blue-500'}} px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50 cursor-pointer">
                     Frequency
                   </th>
                 </tr>
