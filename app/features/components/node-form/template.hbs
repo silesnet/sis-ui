@@ -207,7 +207,19 @@
       <div class="w-4/12 ml-4">
         <!-- submit -->
         <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}}>Uložit</Button>
-        <Button @intent="danger" @appearance="outlined" {{on 'click' (fn this.openDeleteConfirmation)}}>Smazat</Button>
+        {{#if this.args.children}}
+          <p class="pt-4 text-gray-500">Připojené prvky</p>
+          <ul>
+            {{#each this.args.children as |child|}}
+              <li>{{child.name}}</li>
+            {{/each}}
+          </ul>
+        {{else}}
+          {{#if changeset.id }}
+            <Button @intent="danger" @appearance="outlined" {{on 'click' (fn
+              this.openDeleteConfirmation)}}>Smazat</Button>
+          {{/if}}
+        {{/if}}
       </div>
     </div>
   </ChangesetForm>

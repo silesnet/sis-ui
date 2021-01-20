@@ -1,1 +1,2 @@
-<NodeForm @node={{@model}} @onSubmit={{route-action 'save' }} @onDelete={{route-action 'delete' }}></NodeForm>
+<NodeForm @node={{@model.node}} @children={{@model.children}} @onSubmit={{route-action 'save' }}
+  @onDelete={{route-action 'delete' }}></NodeForm>
