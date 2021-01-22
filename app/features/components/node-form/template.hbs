@@ -203,23 +203,27 @@
           <!-- node active -->
           <Form.Checkbox @fieldName="active" @label="Active" />
         {{/if}}
-      </div>
-      <div class="w-4/12 ml-4">
-        <!-- submit -->
-        <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}}>Uložit</Button>
-        {{#if this.args.children}}
-          <p class="pt-4 text-gray-500">Připojené prvky</p>
-          <ul>
-            {{#each this.args.children as |child|}}
-              <li>{{child.name}}</li>
-            {{/each}}
-          </ul>
-        {{else}}
-          {{#if changeset.id }}
-            <Button @intent="danger" @appearance="outlined" {{on 'click' (fn
-              this.openDeleteConfirmation)}}>Smazat</Button>
+        <div id="action-buttons" class="flex justify-end mt-6">
+          <!-- delete -->
+          {{#if (and changeset.id (not this.args.children))}}
+            <Button @intent="danger" @appearance="outlined" {{on 'click' (fn this.openDeleteConfirmation)}}
+              class="mr-3">Smazat</Button>
           {{/if}}
-        {{/if}}
+          <!-- submit -->
+          <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}}>Uložit</Button>
+        </div>
+      </div>
+      <div class="flex flex-col justify-between w-4/12 ml-4">
+        <div id="node-children">
+          {{#if this.args.children}}
+            <p class="text-gray-500">Připojené prvky</p>
+            <ul>
+              {{#each this.args.children as |child|}}
+                <li>{{child.name}}</li>
+              {{/each}}
+            </ul>
+          {{/if}}
+        </div>
       </div>
     </div>
   </ChangesetForm>
