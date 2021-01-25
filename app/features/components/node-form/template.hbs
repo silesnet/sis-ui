@@ -2,7 +2,7 @@
   <ChangesetForm @changeset={{this.changeset}} as |Form changeset|>
     <div class="flex mb-4">
       <div class="flex justify-end w-1/12 h-auto mr-6">
-        <!-- close button -->
+        {{! close button }}
         <LinkTo @route="network" class="h-6">
           <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
             <path
@@ -12,9 +12,9 @@
         </LinkTo>
       </div>
       <div class="w-6/12 px-4">
-        <!-- node path -->
+        {{! node path }}
         <p class="mb-4 text-gray-500">{{changeset.path}}</p>
-        <!-- node country -->
+        {{! node country }}
         <div class="mb-4 form-tooltip">
           <span class="mr-5 tooltip-text">Country</span>
           <Form.Select @fieldName="country" @placeholder="Country" @options={{this.options.countries}}
@@ -22,12 +22,12 @@
             {{country}}
           </Form.Select>
         </div>
-        <!-- node name -->
+        {{! node name }}
         <div class="form-tooltip">
           <span class="tooltip-text">Název</span>
           <Form.Input @fieldName="name" placeholder="Název" />
         </div>
-        <!-- node type -->
+        {{! node type }}
         <div class="form-tooltip">
           <span class="mr-5 tooltip-text">Typ</span>
           <Form.Select @fieldName="type" @placeholder="Typ" @options={{this.options.types}} @containerClass="mt-4" as
@@ -35,7 +35,7 @@
             {{type}}
           </Form.Select>
         </div>
-        <!-- node master -->
+        {{! node master }}
         <div class="flex flex-row -ml-8">
           <div class="self-center flex-none mt-4 mr-2">
             <svg class="w-6 h-6 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
@@ -53,7 +53,7 @@
             </Form.Select>
           </div>
         </div>
-        <!-- node linkTo -->
+        {{! node linkTo }}
         <div class="flex flex-row -ml-8">
           <div class="self-center flex-none mt-4 mr-2">
             <svg class="w-6 h-6 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
@@ -71,7 +71,7 @@
             </Form.Select>
           </div>
         </div>
-        <!-- node area -->
+        {{! node area }}
         <div class="flex flex-row -ml-8">
           <div class="self-center flex-none mt-4 mr-2">
             <svg class="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -90,7 +90,7 @@
             </Form.Select>
           </div>
         </div>
-        <!-- node vendor -->
+        {{! node vendor }}
         <div class="form-tooltip">
           <span class="mr-5 tooltip-text">Vendor</span>
           <Form.Select @fieldName="vendor" @placeholder="Vendor" @options={{this.options.vendors}}
@@ -99,7 +99,7 @@
             {{vendor}}
           </Form.Select>
         </div>
-        <!-- node model -->
+        {{! node model }}
         <div class="form-tooltip">
           <span class="mr-5 tooltip-text">Model</span>
           <Form.Select @fieldName="model" @placeholder="Model" @options={{this.options.models}} @searchEnabled={{true}}
@@ -108,12 +108,12 @@
             {{model}}
           </Form.Select>
         </div>
-        <!-- node info -->
+        {{! node info }}
         <div class="form-tooltip">
           <span class="mt-4 tooltip-text">Poznámka</span>
           <Form.Input @fieldName="info" placeholder="Poznámka" class="mt-4" />
         </div>
-        <!-- node monitoring -->
+        {{! node monitoring }}
         <div class="form-tooltip">
           <span class="mr-5 tooltip-text">Monitoring</span>
           <Form.Select @fieldName="monitoring" @placeholder="Monitoring" @options={{this.options.monitoringTypes}}
@@ -122,7 +122,7 @@
           </Form.Select>
         </div>
         {{#if this.isWireless }}
-          <!-- node polarization -->
+          {{! node polarization }}
           <div class="flex flex-row -ml-8">
             <div class="self-center flex-none mt-4 mr-2">
               <svg class="w-6 h-6 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
@@ -139,7 +139,7 @@
               </Form.Select>
             </div>
           </div>
-          <!-- node channel width -->
+          {{! node channel width }}
           <div class="form-tooltip">
             <span class="mr-5 tooltip-text">Channel width</span>
             <Form.Select @fieldName="width" @placeholder="Channel width" @options={{this.options.channelWidths}}
@@ -148,7 +148,7 @@
               {{width}}
             </Form.Select>
           </div>
-          <!-- node norm -->
+          {{! node norm }}
           <div class="form-tooltip">
             <span class="mr-5 tooltip-text">Norm</span>
             <Form.Select @fieldName="norm" @placeholder="Norm" @options={{this.options.norms}} @searchEnabled={{true}}
@@ -157,16 +157,16 @@
               {{norm}}
             </Form.Select>
           </div>
-          <!-- node TDMA -->
+          {{! node TDMA }}
           <Form.Checkbox @fieldName="tdma" @label="TDMA" class="mb-4" />
-          <!-- node aggregation -->
+          {{! node aggregation }}
           <Form.Checkbox @fieldName="aggregation" @label="Aggregation" class="mb-4" />
-          <!-- node SSID -->
+          {{! node SSID }}
           <div class="form-tooltip">
             <span class="tooltip-text">SSID</span>
             <Form.Input @fieldName="ssid" placeholder="SSID" class="mb-4" />
           </div>
-          <!-- node frequency -->
+          {{! node frequency }}
           <div class="form-tooltip">
             <span class="mr-5 tooltip-text">Frequency</span>
             <Form.Select @fieldName="frequency" @placeholder="Frequency" @options={{this.options.frequencies}}
@@ -175,19 +175,19 @@
               {{frequency}}
             </Form.Select>
           </div>
-          <!-- node power -->
+          {{! node power }}
           <div class="form-tooltip">
             <span class="tooltip-text">Power</span>
             <Form.Input @fieldName="power" placeholder="Power" class="mb-4" />
           </div>
-          <!-- node antenna -->
+          {{! node antenna }}
           <div class="form-tooltip">
             <span class="tooltip-text">Antenna</span>
             <Form.Input @fieldName="antenna" placeholder="Antenna" class="mb-4" />
           </div>
-          <!-- node WDS -->
+          {{! node WDS }}
           <Form.Checkbox @fieldName="wds" @label="WDS" />
-          <!-- node authentication -->
+          {{! node authentication }}
           <div class="form-tooltip">
             <span class="mr-5 tooltip-text">Authentication</span>
             <Form.Select @fieldName="authentication" @placeholder="Authentication"
@@ -195,21 +195,21 @@
               {{authentication}}
             </Form.Select>
           </div>
-          <!-- node azimuth -->
+          {{! node azimuth }}
           <div class="form-tooltip">
             <span class="tooltip-text">Azimuth</span>
             <Form.Input @fieldName="azimuth" placeholder="Azimuth" class="mb-4" />
           </div>
-          <!-- node active -->
+          {{! node active }}
           <Form.Checkbox @fieldName="active" @label="Active" />
         {{/if}}
         <div id="action-buttons" class="flex justify-end mt-6">
-          <!-- delete -->
+          {{! delete }}
           {{#if (and changeset.id (not @children))}}
             <Button @intent="danger" @appearance="outlined" {{on 'click' (fn this.openDeleteConfirmation)}}
               class="mr-3">Smazat</Button>
           {{/if}}
-          <!-- submit -->
+          {{! submit }}
           <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}}>Uložit</Button>
         </div>
       </div>
