@@ -205,7 +205,7 @@
         {{/if}}
         <div id="action-buttons" class="flex justify-end mt-6">
           <!-- delete -->
-          {{#if (and changeset.id (not this.args.children))}}
+          {{#if (and changeset.id (not @children))}}
             <Button @intent="danger" @appearance="outlined" {{on 'click' (fn this.openDeleteConfirmation)}}
               class="mr-3">Smazat</Button>
           {{/if}}
@@ -215,10 +215,10 @@
       </div>
       <div class="flex flex-col justify-between w-4/12 ml-4">
         <div id="node-children">
-          {{#if this.args.children}}
+          {{#if @children}}
             <p class="text-gray-500">Připojené prvky</p>
             <ul>
-              {{#each this.args.children as |child|}}
+              {{#each @children as |child|}}
                 <li>{{child.name}}</li>
               {{/each}}
             </ul>
