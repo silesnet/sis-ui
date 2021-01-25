@@ -18,3 +18,13 @@
 .form-tooltip:hover .tooltip-text {
   @apply visible;
 }
+
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
