@@ -202,14 +202,22 @@
           {{! node active }}
           <Form.Checkbox @fieldName="active" @label="Active" />
         {{/if}}
-        <div id="action-buttons" class="flex justify-end mt-6">
-          {{! delete }}
-          {{#if (and changeset.id (not @children))}}
-            <Button @intent="danger" @appearance="outlined" {{on 'click' (fn this.openDeleteConfirmation)}}
-              class="mr-3">Smazat</Button>
-          {{/if}}
-          {{! submit }}
-          <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}}>Uložit</Button>
+        <div id="action-buttons" class="flex mt-10">
+          <div class="flex justify-start flex-none">
+            {{! delete }}
+            {{#if (and changeset.id (not @children))}}
+              <Button @intent="danger" @appearance="outlined" {{on 'click' (fn
+                this.openDeleteConfirmation)}}>Smazat</Button>
+            {{/if}}
+          </div>
+          <div class="flex justify-end flex-grow">
+            {{! back }}
+            <Button @isRenderless={{true}} @appearance="minimal" as |btn|>
+              <LinkTo @route="network" class={{btn.classNames}}>Zpět</LinkTo>
+            </Button>
+            {{! submit }}
+            <Button @intent="primary" type="submit" {{on 'click' (fn this.submit)}} class="ml-3">Uložit</Button>
+          </div>
         </div>
       </div>
       <div class="flex flex-col justify-between w-4/12 ml-4">
