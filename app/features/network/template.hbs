@@ -49,25 +49,25 @@
                 {{#each this.items as |node index|}}
                   <tr class="{{if (odd index) 'bg-white' 'bg-gray-100'}} cursor-pointer" {{on 'click' (fn
                     this.nodeDetail node.name)}} role="button">
-                    <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                    <td class="px-6 py-2 text-sm leading-5 text-gray-500 whitespace-no-wrap">
                       {{node.country}}
                     </td>
-                    <td class="px-6 py-4 text-sm font-medium leading-5 text-gray-700 whitespace-no-wrap">
+                    <td class="px-6 py-2 text-sm font-medium leading-5 text-gray-700 whitespace-no-wrap">
                       {{node.name}}
                     </td>
-                    <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                    <td class="px-6 py-2 text-sm leading-5 text-gray-500 whitespace-no-wrap">
                       {{node.vendor}}
                     </td>
-                    <td class="px-6 py-4 text-sm leading-5 text-gray-500">
+                    <td class="px-6 py-2 text-sm leading-5 text-gray-500">
                       {{node.model}}
                     </td>
-                    <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                    <td class="px-6 py-2 text-sm leading-5 text-gray-500 whitespace-no-wrap">
                       {{node.linkTo}}
                     </td>
-                    <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                    <td class="px-6 py-2 text-sm leading-5 text-gray-500 whitespace-no-wrap">
                       {{node.width}}
                     </td>
-                    <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                    <td class="px-6 py-2 text-sm leading-5 text-gray-500 whitespace-no-wrap">
                       {{node.frequency}}
                     </td>
                   </tr>
