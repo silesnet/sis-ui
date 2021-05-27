@@ -70,6 +70,7 @@ export default [
       'BRIDGE-BR',
       'BRIDGE-STATION',
       'SWITCH',
+      'CONVERTER',
     ],
     norms: [
       '10GHz',
