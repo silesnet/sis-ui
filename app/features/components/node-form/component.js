@@ -47,6 +47,10 @@ export default class extends Component {
   selectNotFoundValue(select, event) {
     if (event.key === 'Enter') {
       select.actions.select(select.searchText);
+      if (event.shiftKey) {
+        select.actions.close();
+        return false;
+      }
     }
   }
 
